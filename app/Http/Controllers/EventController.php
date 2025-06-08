@@ -42,12 +42,12 @@ class EventController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('eo.dashboard');
     }
 
     public function create()
 {
-    return view('user.create_event');
+    return view('eo.daftarevent');
 }
 
     public function show(string $name) {
@@ -62,5 +62,15 @@ class EventController extends Controller
         return view('EO.register');
     }
 
-   
+    public function eventterdaftar() {
+        $events = Event::all();
+
+        return view('EO.eventeo', compact('events'));
+    }
+
+    public function hapusevent(Request $request){
+        Event::where('id', $request->id)->delete();
+
+        return redirect(route('eo.dashboard'));
+    }
 }

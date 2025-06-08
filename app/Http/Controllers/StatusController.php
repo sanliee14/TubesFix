@@ -15,4 +15,5 @@ class StatusController extends Controller
     {
         return view('user.detail_status');
     }
+
 }

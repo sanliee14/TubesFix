@@ -16,13 +16,15 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role !== 'user') {
-    if (Auth::user()->role === 'admin') {
-        return redirect()->route('admin.dashboard');
-    } elseif (Auth::user()->role === 'eo') {
-        return redirect()->route('eo.dashboard');
-    }
-}
+        if (Auth::check() && Auth::user()->role !== 'user') {
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif (Auth::user()->role === 'eo') {
+                return redirect()->route('eo.dashboard');
+            }
+        }
 
+        // Jika user memiliki role 'user', teruskan request
+        return $next($request);
     }
 }

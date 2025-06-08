@@ -24,15 +24,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+    $request->authenticate();
 
-        if($request->user()->role == 'admin') {
-            return redirect()->route('admin.dashboard');
-        }
-        // if($request->user()->role == 'eo'){
-        //     return redirect()->route('eo.dashboard');
-        }
-        return redirect()->intended(route('dashboard'));
+    if ($request->user()->role === 'admin') {
+    return redirect()->route('admin.dashboard');
+    }
+
+    if ($request->user()->role === 'eo') {
+    return redirect()->route('eo.dashboard');
+    }
+
+// Default untuk user biasa
+    return redirect()->intended(route('dashboard'));
     }
 
     /**

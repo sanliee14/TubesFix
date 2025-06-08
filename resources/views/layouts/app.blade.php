@@ -19,7 +19,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-[#170147]">
+        <div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/11.png') }}')">
               @if (!request()->is('login') && !request()->is('register'))
             @include('layouts.navigation')
         @endif

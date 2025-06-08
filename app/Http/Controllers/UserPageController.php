@@ -14,6 +14,6 @@ class UserPageController extends Controller
 
     public function createEventPage()
     {
-        return view('user.create_event');
+        return view('eo.daftarevent');
     }
 }
