@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-<div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/10.png') }}')">
+<div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/4.png') }}')">
 <div class="min-h-screen flex items-center justify-center">
     <div class="backdrop-blur-md p-8 rounded-xl w-full max-w-md shadow-lg">
         <h2 class="text-3xl font-bold text-center text-yellow-200 mb-6">Register</h2>
@@ -18,7 +18,7 @@
             </button>
 
             <p class="text-center mt-4 text-sm text-white">
-                Already Registered? <a href="{{ route('login') }}" class="text-purple-800 font-semibold">Login</a>
+                Already Registered? <a href="{{ route('users.login') }}" class="text-purple-300 font-semibold">Login</a>
             </p>
         </form>
     </div>

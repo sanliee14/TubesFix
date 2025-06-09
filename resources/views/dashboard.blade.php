@@ -5,7 +5,7 @@
             
             <!-- Text Section -->
             <div class="lg:w-2/3 text-[#f7e7c2] space-y-6">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-purple-800 leading-tigh">Welcome Volunteer!!</h1>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-purple-700 leading-tigh">Welcome Volunteer!!</h1>
                 <h2 class="text-2xl font-semibold text-white">Hai, mahasiswa aktif!</h2>
                 <p class="text-lg leading-relaxed">
                     Yuk mulai kelola, lacak, dan berpartisipasi di berbagai event kampusmu dengan 
@@ -85,7 +85,7 @@
     <!-- Kanan: Teks yang lebih ke kanan -->
     <div class="space-y-6 animate-fade-in text-right md:pl-8">
       <article id="about">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-purple-800 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-purple-700 leading-tight">
         EventConnect sebagai <br> platform kegiatan kampus
       </h2>
       <p class="text-base text-white">
@@ -100,7 +100,7 @@
         <a href="{{ route('user.events') }}" class="bg-[#fff9c4] text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
           BE A PART OF THE EVENT TEAM
         </a>
-        <a href="#" class="bg-blue-300 hover:bg-blue-400 text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
+        <a href="{{ route('eo.register') }}" class="bg-blue-300 hover:bg-blue-400 text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
           LAUNCH YOUR CAMPUS EVENT
         </a>
       </div>
@@ -119,7 +119,7 @@
 </div>
 
 <section class="bg-gradient-to-br from-black/70 to-slate-800/80 backdrop-blur-md py-12 px-6 mt-16 rounded-xl shadow-lg max-w-7xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-800 mb-10">
+  <h2 class="text-3xl md:text-4xl font-bold text-center text-purple-700 mb-10">
     Alur Pendaftaran EventConnect
   </h2>
 
@@ -217,6 +217,7 @@
         <p>&copy; 2025 - EventConnect All Rights Reserved.</p>
     </div>
      </article>
+     </footer>
     <!-- <div class="border-t border-[#2d0c57] text-center py-6 text-[#2d0c57] text-sm">
         <div class="flex justify-center space-x-10 mb-2">
             <a href="#" class="underline hover:text-[#5e17eb]">Legal Terms</a>
@@ -238,7 +239,5 @@
         <i class="fas fa-plus mr-2"></i> Create Event
 </button>
 </div>
-
-</footer>
 </x-app-layout>
 

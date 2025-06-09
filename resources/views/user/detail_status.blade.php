@@ -1,26 +1,29 @@
 <x-app-layout>
 
-    <div class="py-8 bg-gradient-to-b from-purple-900 to-indigo-900 min-h-screen">
+    <div class="py-8 min-h-screen" style="background-image: url('{{ asset('images/wall.jpg') }}')>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Status Button -->
             <div class="flex justify-center mb-8">
-                <div class="bg-pink-300 text-purple-800 font-semibold py-3 px-8 rounded-full text-lg">
+                <div class="bg-pink-200/50 backdrop-blur-sm text-purple-300 font-semibold py-3 px-8 rounded-full text-lg">
                     Detail Status
                 </div>
             </div>
 
-            <div class="bg-yellow-200 rounded-3xl p-8 max-w-4xl mx-auto">
+            <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm rounded-3xl p-8 max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     <div class="md:col-span-1">
                         <div class="bg-purple-300 rounded-2xl aspect-square flex items-center justify-center mb-4">
-                            <div class="text-purple-600 text-center">
+                            <div class="w-60 h-72 bg-white gambar rounded-xl overflow-hidden flex  justify-center">
+                            <img src="" alt="" class="object-cover">
+                        </div>
+                            <!-- <div class="text-purple-600 text-center">
                                 <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
                                 </svg>
                                 <p class="text-sm">Foto Event</p>
-                            </div>
+                            </div> -->
                         </div>
-                        <h2 class="text-purple-800 text-xl font-bold text-center">Workshop Machine Learning</h2>
+                        <h2 class="text-purple-300 text-xl font-bold text-center">Workshop Machine Learning</h2>
                     </div>
 
                     <!-- Event Information -->

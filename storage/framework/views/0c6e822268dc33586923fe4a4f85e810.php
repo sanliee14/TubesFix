@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/5.png')); ?>')">
+<div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/4.png')); ?>')">
 <div class="min-h-screen flex items-center justify-center"> 
     <div class="backdrop-blur-md p-8 rounded-xl w-full max-w-md shadow-lg "> 
         <h2 class="text-3xl font-bold text-center text-yellow-200 mb-6">Login</h2> 
@@ -14,7 +14,7 @@
             </button>
 
             <p class="text-center mt-4 text-sm text-white">
-                Don’t have an account? <a href="<?php echo e(route('register')); ?>" class="text-purple-800 font-semibold">Sign Up</a>
+                Don’t have an account? <a href="<?php echo e(route('register')); ?>" class="text-purple-300 font-semibold">Sign Up</a>
             </p>
         </form>
     </div>

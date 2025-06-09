@@ -19,7 +19,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/11.png')); ?>')">
+        <div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/wall.jpg')); ?>')">
               <?php if(!request()->is('login') && !request()->is('register')): ?>
             <?php echo $__env->make('layouts.navigation', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         <?php endif; ?>

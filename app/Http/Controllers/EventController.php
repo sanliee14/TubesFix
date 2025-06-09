@@ -73,4 +73,10 @@ class EventController extends Controller
 
         return redirect(route('eo.dashboard'));
     }
+
+    public function pendaftar(){
+
+        return view('EO.pendaftar');
+    }
+
 }

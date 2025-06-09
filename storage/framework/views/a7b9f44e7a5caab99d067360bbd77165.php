@@ -109,7 +109,7 @@
         <a href="<?php echo e(route('user.events')); ?>" class="bg-[#fff9c4] text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
           BE A PART OF THE EVENT TEAM
         </a>
-        <a href="#" class="bg-blue-300 hover:bg-blue-400 text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
+        <a href="<?php echo e(route('eo.register')); ?>" class="bg-blue-300 hover:bg-blue-400 text-[#2d0c57] font-bold py-3 px-6 rounded-xl hover:bg-yellow-200 shadow transition">
           LAUNCH YOUR CAMPUS EVENT
         </a>
       </div>
@@ -226,6 +226,7 @@
         <p>&copy; 2025 - EventConnect All Rights Reserved.</p>
     </div>
      </article>
+     </footer>
     <!-- <div class="border-t border-[#2d0c57] text-center py-6 text-[#2d0c57] text-sm">
         <div class="flex justify-center space-x-10 mb-2">
             <a href="#" class="underline hover:text-[#5e17eb]">Legal Terms</a>
@@ -247,8 +248,6 @@
         <i class="fas fa-plus mr-2"></i> Create Event
 </button>
 </div>
-
-</footer>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>

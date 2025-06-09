@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-[#c98ff6]">
+<nav x-data="{ open: false }" class="bg-slate-900">
     
    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Primary Navigation Menu -->
@@ -25,7 +25,7 @@
                         <x-nav-link :href="route('eo.eventeo')" :active="request()->routeIs('user.events')">
                             {{ __('Events') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('user.status')" :active="request()->routeIs('user.status')">
+                        <x-nav-link :href="route('eo.pendaftar')" :active="request()->routeIs('user.status')">
                             {{ __('Pendaftar') }}
                         </x-nav-link>
                     @endif
