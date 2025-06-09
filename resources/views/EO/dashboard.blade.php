@@ -16,23 +16,37 @@
 
         <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body class="font-sans antialiased">
+
+        {{-- alert start --}}
+        @session('success')
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "{{ session('success') }}",
+                icon: "success"
+              });
+            </script>
+        @endsession
+        {{-- alert end --}}
+
+
         <!-- <div class="min-h-fit bg-center" style="background-image: url('{{ asset('images/11.png') }}')"> -->
              @include('EO.navbar')
   <body class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('images/2.png') }}');">
     <div class="flex justify-center items-center py-6 px-2 mb-0 min-h-[65vh]">
         <div class="from-blue-900 to-indigo-900	backdrop-blur-md rounded-3xl p-12 max-w-7xl w-full flex flex-col lg:flex-row gap-6 shadow-2xl">
-            
+
             <!-- Text Section -->
             <div class="lg:w-2/3 text-[#f7e7c2] space-y-4">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-blue-700 leading-tigh">Welcome EO!!</h1>
                 <h2 class="text-2xl font-semibold text-white">Hai, Panitia Event Kampus!</h2>
             <p class="text-lg leading-relaxed">
-              Kelola event kampusmu dengan lebih efisien bersama 
-              <span class="font-bold text-white">EventConnect</span>. Dari pendaftaran peserta, pembagian tugas panitia, hingga pelaporan acara - semua bisa dilakukan dalam satu platform. 
-              <br>Pantau perkembangan event secara real-time dan jangkau lebih banyak partisipan dengan fitur kami yang 
+              Kelola event kampusmu dengan lebih efisien bersama
+              <span class="font-bold text-white">EventConnect</span>. Dari pendaftaran peserta, pembagian tugas panitia, hingga pelaporan acara - semua bisa dilakukan dalam satu platform.
+              <br>Pantau perkembangan event secara real-time dan jangkau lebih banyak partisipan dengan fitur kami yang
               <span class="font-bold text-white">terintegrasi dan mudah digunakan</span>. Event sukses, kerja tim pun lebih hemat waktu!
             </p>
                 <div class="flex gap-6 pt-4">
@@ -47,9 +61,9 @@
         </div>
     </div>
 </div>
-       
+
     </div> -->
-            
+
 
     <!-- Garis transisi antar section -->
 <div class="h-2 w-full flex mt-10">
@@ -102,7 +116,7 @@
   <div>
     <div>
 </section>
-</article> 
+</article>
 
     <!-- Garis transisi antar section -->
 <div class="h-2 w-full flex mt-10">

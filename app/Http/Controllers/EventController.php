@@ -42,7 +42,7 @@ class EventController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect()->route('eo.dashboard');
+        return redirect()->route('eo.dashboard')->with('success','Event telah dibuat');
     }
 
     public function create()
