@@ -20,19 +20,25 @@
                 <!-- Status Sections -->
                 <div class="space-y-5">
                     <!-- Event Status Card -->
+                    <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-lg">
                         <div class="flex justify-between items-center mb-4">
                             <!-- Blurred Title (no background color) -->
                             <div class="text-2xl font-semibold text-white flex justify-center">
-                                Workshop Machine Learning
+                                <?php echo e($item->nama_event); ?>
+
                             </div>
-                            <button 
-                                class="bg-gradient-to-r from-purple-400 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:translate-y-[-2px] hover:shadow-md transition-all duration-300"
-                                onclick="window.location.href='<?php echo e(route('user.detail-status')); ?>'">
-                                Cek Status
-                            </button>
+                            <form method="POST" action="<?php echo e(route('user.detail-status',$item->id)); ?>">
+                                <?php echo csrf_field(); ?>
+                                    <button
+                                        class="bg-gradient-to-r from-purple-400 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:translate-y-[-2px] hover:shadow-md transition-all duration-300">
+                                        Cek Status
+                                    </button>
+                            </form>
                         </div>
                     </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
                 </div>
             </div>
         </div>
@@ -46,4 +52,5 @@
 <?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
-<?php endif; ?><?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\EventConnect\resources\views/user/status.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\EventConnect\resources\views/user/status.blade.php ENDPATH**/ ?>

@@ -71,12 +71,20 @@ class EventController extends Controller
     public function hapusevent(Request $request){
         Event::where('id', $request->id)->delete();
 
-        return redirect(route('eo.dashboard'));
+        return redirect(route('eo.dashboard'))->with('delete','Event berhasil dihapus');
     }
 
     public function pendaftar(){
 
-        return view('EO.pendaftar');
+        $event = Event::where('user_id', Auth::id())->get();
+
+        return view('EO.pendaftar',compact('event'));
+    }
+
+    public function detailpendaftar(Request $request){
+        $detail = Event::where('id',$request->id)->get();
+
+        return view('EO.detail-pendaftar',compact('detail'));
     }
 
 }

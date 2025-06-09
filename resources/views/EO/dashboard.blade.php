@@ -30,6 +30,16 @@
               });
             </script>
         @endsession
+
+        @session('delete')
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "{{ session('delete') }}",
+                icon: "success"
+              });
+            </script>
+        @endsession
         {{-- alert end --}}
 
 

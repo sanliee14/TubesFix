@@ -37,6 +37,23 @@ if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_po
 if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
 endif;
 unset($__sessionArgs); ?>
+
+        <?php $__sessionArgs = ['delete'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "<?php echo e(session('delete')); ?>",
+                icon: "success"
+              });
+            </script>
+        <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
         
 
 

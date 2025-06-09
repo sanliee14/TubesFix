@@ -11,19 +11,24 @@
                 <!-- Status Sections -->
                 <div class="space-y-5">
                     <!-- Event Status Card -->
+                    @foreach ($events as $item)
                     <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-lg">
                         <div class="flex justify-between items-center mb-4">
                             <!-- Blurred Title (no background color) -->
                             <div class="text-2xl font-semibold text-white flex justify-center">
-                                Workshop Machine Learning
+                                {{ $item->nama_event }}
                             </div>
-                            <button 
-                                class="bg-gradient-to-r from-purple-400 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:translate-y-[-2px] hover:shadow-md transition-all duration-300"
-                                onclick="window.location.href='{{ route('user.detail-status') }}'">
-                                Cek Status
-                            </button>
+                            <form method="POST" action="{{ route('user.detail-status',$item->id) }}">
+                                @csrf
+                                    <button
+                                        class="bg-gradient-to-r from-purple-400 to-purple-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:translate-y-[-2px] hover:shadow-md transition-all duration-300">
+                                        Cek Status
+                                    </button>
+                            </form>
                         </div>
                     </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>

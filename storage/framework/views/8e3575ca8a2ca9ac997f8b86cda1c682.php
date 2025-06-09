@@ -21,9 +21,12 @@
             <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm rounded-3xl p-8 max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     <div class="md:col-span-1">
+                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+
                         <div class="bg-purple-300 rounded-2xl aspect-square flex items-center justify-center mb-4">
                             <div class="w-60 h-72 bg-white gambar rounded-xl overflow-hidden flex  justify-center">
-                            <img src="" alt="" class="object-cover">
+                                <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>" alt="Gambar Event" class="object-cover">
                         </div>
                             <!-- <div class="text-purple-600 text-center">
                                 <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
@@ -32,7 +35,8 @@
                                 <p class="text-sm">Foto Event</p>
                             </div> -->
                         </div>
-                        <h2 class="text-purple-300 text-xl font-bold text-center">Workshop Machine Learning</h2>
+                        <h2 class="text-purple-300 text-xl font-bold text-center"><?php echo e($item->nama_event); ?></h2>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
 
                     <!-- Event Information -->
@@ -86,4 +90,5 @@
 <?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
-<?php endif; ?><?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\EventConnect\resources\views/user/detail_status.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\EventConnect\resources\views/user/detail_status.blade.php ENDPATH**/ ?>

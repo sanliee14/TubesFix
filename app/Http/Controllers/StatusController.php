@@ -1,19 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
     public function index()
     {
-        return view('user.status');
+        $events = Event::all();
+        return view('user.status',compact('events'));
     }
 
-    public function detail()
+    public function detail(Request $request)
     {
-        return view('user.detail_status');
+        $data = Event::where('id',$request->id)->get();
+
+        return view('user.detail_status',compact('data'));
     }
 
 }
