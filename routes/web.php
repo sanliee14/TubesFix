@@ -38,7 +38,7 @@ Route::get('/eventeo', [EventController::class, 'eventterdaftar'])->name('eo.eve
 Route::get('/events', [EventController::class, 'index'])->name('user.events');
 Route::get('/status', [StatusController::class, 'index'])->name('user.status');
 Route::get('/detail-status', [StatusController::class, 'detail'])->name('user.detail-status');
-Route::get('/detail-pendaftar', [EventController::class, 'detail'])->name('eo.detail-pendaftar');
+Route::get('/detail-pendaftar', [EventController::class, 'detailpendaftar'])->name('eo.detail-pendaftar');
 Route::get('/pendaftar', [EventController::class, 'pendaftar'])->name('eo.pendaftar');
 Route::post('/delete/{id}', [EventController::class, 'hapusevent']);
 

@@ -78,5 +78,10 @@ class EventController extends Controller
 
         return view('EO.pendaftar');
     }
+    
+    public function detailpendaftar(){
+
+        return view('EO.detail-pendaftar');
+    }
 
 }
