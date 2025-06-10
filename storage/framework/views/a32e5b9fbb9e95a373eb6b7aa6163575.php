@@ -8,58 +8,63 @@
 <?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-    <div class="py-12 min-h-screen" style="background-image: url('<?php echo e(asset('images/wall.jpg')); ?>')">
+    <div class="py-12 min-h-screen bg-cover bg-center" style="background-image: url('<?php echo e(asset('images/wall.jpg')); ?>')">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden shadow-sm rounded-2xl">
-                <div class="p-6 flex flex-col gap-10 items-center text-center">
+            <div class="overflow-hidden rounded-2xl">
+                <div class="p-8 flex flex-col items-center">
+
                     
-                    
-                    <div class="flex justify-center mb-8">
-                <div class="bg-pink-200/50 backdrop-blur-sm text-purple-300 font-semibold py-3 px-8 rounded-full text-lg">
-                    Daftar Event
-                </div>
+                    <div class="mb-12 text-center">
+                        <h1 class="text-4xl font-bold text-purple-300  py-4 px-10 rounded-full inline-block">
+                            Daftar Event
+                        </h1>
                     </div>
+
                     
-                    <div class="grid grid-cols-3 gap-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                         <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm p-5 rounded-[40px] flex flex-col items-center justify-center">
-                
+                            <div class="bg-gradient-to-br from-purple-500/30 to-violet-600/40 backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+
+                                
+                                <div class="bg-pink-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
+                                    <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>"
+                                         alt="Gambar <?php echo e($item->nama_event); ?>"
+                                         class="w-full h-full object-cover rounded-xl shadow-lg">
+                                </div>
+
+                                
+                                <div class="flex flex-col items-center gap-4 w-full">
                                     
-                                    <div class="bg-pink-200/50 backdrop-sepia-0 p-6 rounded-[40px] w-35 h-35 flex flex-col gap-4 items-center justify-center transition-all
-                                            <!-- <?php if($loop->index === 1): ?> border-2 border-[#a067e6] <?php else: ?> border-2 border-transparent <?php endif; ?>">
-                                    <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>" 
-                                         alt="Gambar <?php echo e($item->nama_event); ?>" 
-                                         class="w-32 h-32 object-cover rounded-xl shadow-md">
-                                    </div>
-                                    
-                                    <h1 class="font-semibold font-serif text-xl text-center text-yellow-300">
+                                    <h2 class="text-2xl font-bold text-yellow-300 text-center">
                                         <?php echo e($item->nama_event); ?>
 
-                                    </h1>
+                                    </h2>
 
                                     
-                                    <p class="text-center font-sans-serif text-sm text-purple-300">
+                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
                                         <?php echo e($item->deskripsi); ?>
 
                                     </p>
 
                                     
-                                    <p class="text-center text-sm text-purple-300">
-                                        <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d F Y')); ?> -
-                                        <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d F Y')); ?>
+                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
+                                        <p class="text-purple-100 text-sm">
+                                            <i class="fas fa-calendar-alt mr-2"></i>
+                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y')); ?> -
+                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y')); ?>
 
-                                    </p>
-
-                                    
-                                    <a href="/daftar-panitia/<?php echo e(strtolower($item->nama_event)); ?>"
-                                       class="mt-3 bg-[#5e17eb] hover:bg-[#4b0fcb] px-5 py-3 rounded-2xl font-semibold text-white text-sm transition">
-                                        Daftar
-                                    </a>
+                                        </p>
+                                    </div>
                                 </div>
+
+                                
+                                <a href="/daftar-panitia/<?php echo e(strtolower($item->nama_event)); ?>"
+                                   class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
+                                    Daftar Sekarang
+                                </a>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
-
                 </div>
             </div>
         </div>
