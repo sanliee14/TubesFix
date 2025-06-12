@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-md overflow-hidden shadow-sm rounded-2xl">
-                <form action="{{ route('user.store_event') }}" method="POST" class="p-10">
+                <form action="{{ route('daftar.panitia',$event->id) }}" method="POST" class="p-10">
                     @csrf
                     <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
                         <!-- Bagian Gambar -->
@@ -20,8 +20,9 @@
                             <!-- Nama -->
                             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                 <label for="nama" class="font-semibold text-purple-300 text-lg min-w-[120px]">Nama</label>
-                                <input type="text" id="nama" name="nama" value="{{Auth::user()->name}}" readonly 
+                                <input type="text" id="nama" name="nama" value="{{Auth::user()->name}}" readonly
                                        class="bg-[#5e17eb] border-none text-[#FAEBD7] outline-none rounded-full px-6 py-2 w-full md:w-100 shadow-inner">
+                                <input type="hidden" name="event_id">{{ $event->id }}</input>
                             </div>
 
                             <!-- Posisi -->

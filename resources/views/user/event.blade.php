@@ -3,6 +3,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden rounded-2xl">
                 <div class="p-8 flex flex-col items-center">
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    @session('success')
+                    <script>
+                        Swal.fire({
+                            title: "Success",
+                            text: "{{ session('success') }}",
+                            icon: "success"
+                          });
+                        </script>
+                    @endsession
 
                     {{-- JUDUL HALAMAN --}}
                     <!-- <div class="shadow-md">

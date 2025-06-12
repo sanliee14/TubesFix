@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Apply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,9 +52,9 @@ class EventController extends Controller
 }
 
     public function show(string $name) {
-        $event = Event::where('nama_event', $name)->first();
+        $events = Event::where('nama_event', $name)->first();
 
-        return view('user.daftar-panitia', compact('event'));
+        return view('user.daftar-panitia', compact('events'));
     }
 
     public function regiseo() {
@@ -63,7 +64,7 @@ class EventController extends Controller
     }
 
     public function eventterdaftar() {
-        $events = Event::all();
+        $events = Event::where('user_id', Auth::id())->get();
 
         return view('EO.eventeo', compact('events'));
     }
@@ -95,9 +96,26 @@ class EventController extends Controller
     }
 
     public function detailpendaftar(Request $request){
-        $detail = Event::where('id',$request->id)->get();
+        $detail = Apply::where('event_id',$request->id)->get();
 
         return view('EO.detail-pendaftar',compact('detail'));
     }
 
+    public function daftarPanitia(Request $request){
+
+        $request->validate([
+            'posisi' => 'required|string|max:255',
+            'alasan' => 'required|string|max:255'
+        ]);
+
+        Apply::create([
+            'event_id' => $request->id,
+            'posisi' => $request->posisi,
+            'alasan' => $request->alasan,
+            'status' => 'menunggu',
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect()->route('user.events')->with('success','Terimakasih sudah mendaftar');
+    }
 }

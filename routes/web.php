@@ -45,6 +45,7 @@ Route::post('/detail-status/{id}', [StatusController::class, 'detail'])->name('u
 Route::post('/detail-pendaftar/{id}', [EventController::class, 'detailpendaftar'])->name('eo.detail-pendaftar');
 Route::get('/pendaftar', [EventController::class, 'pendaftar'])->name('eo.pendaftar');
 Route::post('/delete/{id}', [EventController::class, 'hapusevent']);
+Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->name('daftar.panitia');
 
 
 Route::middleware('auth')->group(function () {
