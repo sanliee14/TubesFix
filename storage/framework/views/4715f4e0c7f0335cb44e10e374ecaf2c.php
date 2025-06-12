@@ -91,9 +91,9 @@ unset($__sessionArgs); ?>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
     <!-- Step 1 -->
     <div class="bg-pink-100 opacity-100 p-6 rounded-xl shadow-md space-y-4">
-      <div class="text-6xl">🖱️</div>
-      <h3 class="text-xl font-bold text-blue-800">Total Event</h3>
-      <p class="text-sm text-gray-700">
+      <!-- <div class="text-6xl">🖱️</div> -->
+      <h3 class="text-3xl font-bold text-blue-800">Total Event</h3>
+      <p class="text-xl text-gray-700">
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
@@ -105,9 +105,9 @@ unset($__sessionArgs); ?>
     </div>
     <!-- Step 2 -->
     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
-      <div class="text-6xl">📋</div>
-      <h3 class="text-xl font-bold text-blue-800">Isi Form</h3>
-      <p class="text-sm text-gray-700">
+      <!-- <div class="text-6xl">📋</div> -->
+      <h3 class="text-3xl font-bold text-blue-800">Total EO</h3>
+      <p class="text-xl text-gray-700">
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
@@ -120,9 +120,9 @@ unset($__sessionArgs); ?>
 
     <!-- Step 3 -->
     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
-    <div class="text-6xl">✅❌</div>
-    <h3 class="text-xl font-bold text-blue-800">Status</h3>
-    <p class="text-sm text-gray-700">
+    <!-- <div class="text-6xl">✅❌</div> -->
+    <h3 class="text-3xl font-bold text-blue-800">Total Panitia</h3>
+    <p class="text-xl text-gray-700">
         jumlah
     </p>
        <div class="mt-10 flex justify-center">

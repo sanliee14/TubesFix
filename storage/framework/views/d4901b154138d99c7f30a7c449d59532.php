@@ -1,5 +1,5 @@
-@include('EO.navbar')
-    <div class="py-8 min-h-screen" style="background-image: url('{{ asset('images/2.png') }}')">
+<?php echo $__env->make('EO.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+    <div class="py-8 min-h-screen" style="background-image: url('<?php echo e(asset('images/2.png')); ?>')">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Status Button -->
             <div class="flex justify-center mb-8">
@@ -84,3 +84,4 @@
         </div>
     </div>
 
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/EO/detail-pendaftar.blade.php ENDPATH**/ ?>

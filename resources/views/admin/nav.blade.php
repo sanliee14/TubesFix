@@ -3,7 +3,7 @@
    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify- h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -13,15 +13,19 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if(request()->is('admin*')) 
+                    <h1 class="justify-center text-3xl font-fold">
+                        EventConnect
+                    </h1>
+                        <div class="hidden">
                         <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     @else
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
-                        </x-nav-link>
+                        </x-nav-link> -->
                         <x-nav-link :href="route('eo.eventeo')" :active="request()->routeIs('user.events')">
                             {{ __('Events') }}
                         </x-nav-link>
@@ -30,10 +34,11 @@
                         </x-nav-link>
                     @endif
                 </div>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden justify-end w-full sm:flex sm:items-center sm:ms-6">
                 @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
