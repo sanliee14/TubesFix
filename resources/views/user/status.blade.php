@@ -2,7 +2,7 @@
     <div class="min-h-screen font-poppins">
         <!-- Header Section -->
         <div class="flex justify-center mt-8 mb-8">
-                <div class="bg-pink-200/50 backdrop-blur-sm text-purple-300 font-semibold py-3 px-8 rounded-full text-lg">
+                <div class="text-purple-300 font-bold py-3 px-8 text-3xl">
                     Status
                 </div>
             </div>
@@ -15,7 +15,7 @@
                     <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-lg">
                         <div class="flex justify-between items-center mb-4">
                             <!-- Blurred Title (no background color) -->
-                            <div class="text-2xl font-semibold text-white flex justify-center">
+                            <div class="text-2xl font-semibold text-[#FAEBD7] flex justify-center">
                                 {{ $item->nama_event }}
                             </div>
                             <form method="POST" action="{{ route('user.detail-status',$item->id) }}">

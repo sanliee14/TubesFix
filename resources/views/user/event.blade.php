@@ -1,10 +1,13 @@
 <x-app-layout>
-    <div class="py-12 min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/wall.jpg') }}')">
+    <div class="min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/wall.jpg') }}')">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden rounded-2xl">
                 <div class="p-8 flex flex-col items-center">
 
                     {{-- JUDUL HALAMAN --}}
+                    <!-- <div class="shadow-md">
+                    <h1 class="text-blue-200 text-3xl font-bold tracking-wide">Daftar Event</h1>
+                    </div> -->
                     <div class="mb-12 text-center">
                         <h1 class="text-4xl font-bold text-purple-300  py-4 px-10 rounded-full inline-block">
                             Daftar Event
@@ -26,7 +29,7 @@
                                 {{-- KONTEN TEKS --}}
                                 <div class="flex flex-col items-center gap-4 w-full">
                                     {{-- NAMA EVENT --}}
-                                    <h2 class="text-2xl font-bold text-yellow-300 text-center">
+                                    <h2 class="text-2xl font-bold text-[#FAEBD7] text-center">
                                         {{ $item->nama_event }}
                                     </h2>
 

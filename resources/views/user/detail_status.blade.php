@@ -4,7 +4,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Status Button -->
             <div class="flex justify-center mb-8">
-                <div class="bg-pink-200/50 backdrop-blur-sm text-purple-300 font-semibold py-3 px-8 rounded-full text-lg">
+                <div class="text-purple-300 font-bold py-3 px-8 rounded-full text-3xl">
                     Detail Status
                 </div>
             </div>
@@ -26,7 +26,7 @@
                                 <p class="text-sm">Foto Event</p>
                             </div> -->
                         </div>
-                        <h2 class="text-purple-300 text-xl font-bold text-center">{{ $item->nama_event }}</h2>
+                        <h2 class="text-[#FAEBD7] text-xl font-bold text-center">{{ $item->nama_event }}</h2>
                         @endforeach
                     </div>
 

@@ -2,7 +2,7 @@
     <div class="min-h-screen" style="background-image: url('{{ asset('images/2.png') }}');">
         <!-- Header Section -->
         <div class="py-8 flex justify-center mb-8">
-                <div class="bg-blue-200/50 backdrop-blur-sm text-blue-900 font-bold py-3 px-8 rounded-full text-2xl">
+                <div class="text-blue-200 font-bold py-3 px-8 rounded-full text-3xl">
                     Daftar Peserta
                 </div>
             </div>

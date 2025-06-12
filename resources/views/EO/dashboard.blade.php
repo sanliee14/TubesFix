@@ -119,7 +119,7 @@
   <!-- Button -->
   <div class="mt-10 flex justify-center">
     <a href="{{ route('user.events') }}"
-       class="bg-blue-900 hover:bg-blue-200 text-white font-semibold px-8 py-3 rounded-full hover:bg-purple-700 transition">
+       class="bg-blue-900 hover:bg-blue-200 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
       Create Event
     </a>
   </div>

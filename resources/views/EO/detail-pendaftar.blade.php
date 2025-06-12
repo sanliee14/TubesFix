@@ -3,12 +3,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Status Button -->
             <div class="flex justify-center mb-8">
-                <div class="bg-blue-200/50 backdrop-blur-sm text-blue-900 font-bold py-3 px-8 rounded-full text-lg">
+                <div class="text-blue-900 font-bold py-3 px-8 rounded-full text-3xl">
                     Data Pendaftar
                 </div>
             </div>
 
-            <div class="bg-blue-300/60 backdrop-blur-md rounded-3xl p-8 max-w-7xl mx-auto">
+            <div class="bg-blue-300/60 backdrop-blur-md text-[#FAEBD7] rounded-3xl p-8 max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                     <div class="md:col-span-1">
                         <div class="rounded-2xl aspect-square flex items-center justify-center mb-4">
