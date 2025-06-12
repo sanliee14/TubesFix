@@ -66,6 +66,7 @@
                         </div>
                     </div>
 
+                    <?php if($item->status == 'menunggu'): ?>
                     <!-- Tombol -->
                     <div class="flex justify-center gap-4 pt-4">
                         <form method="POST" action="<?php echo e(route('terima',$item->id_apply)); ?>">
@@ -83,6 +84,9 @@
                                 </button>
                         </form>
                     </div>
+                    <?php else: ?>
+
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
