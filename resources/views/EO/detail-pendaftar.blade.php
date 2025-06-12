@@ -64,14 +64,20 @@
 
                     <!-- Tombol -->
                     <div class="flex justify-center gap-4 pt-4">
-                        <button
-                            class="text-[#FAEBD7] bg-blue-900 hover:bg-blue-200 hover:text-blue-900 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                            Terima
-                        </button>
-                        <button
-                            class="text-[#FAEBD7] bg-red-700 hover:bg-red-200 hover:text-red-700 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                            Tolak
-                        </button>
+                        <form method="POST" action="{{ route('terima',$item->id_apply) }}">
+                            @csrf
+                                <button
+                                    class="text-[#FAEBD7] bg-blue-900 hover:bg-blue-200 hover:text-blue-900 px-5 py-3 rounded-2xl font-semibold text-sm transition">
+                                    Terima
+                                </button>
+                        </form>
+                        <form method="POST" action="{{ route('tolak',$item->id_apply) }}">
+                            @csrf
+                                <button
+                                    class="text-[#FAEBD7] bg-red-700 hover:bg-red-200 hover:text-red-700 px-5 py-3 rounded-2xl font-semibold text-sm transition">
+                                    Tolak
+                                </button>
+                        </form>
                     </div>
                 </div>
             </div>

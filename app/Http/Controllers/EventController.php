@@ -108,6 +108,14 @@ class EventController extends Controller
             'alasan' => 'required|string|max:255'
         ]);
 
+        $check = Apply::where('user_id', Auth::id())
+                  ->where('event_id', $request->id)
+                  ->first();
+
+        if ($check) {
+            return back()->with('error', 'Kamu sudah mendaftar ke event ini.');
+        }
+
         Apply::create([
             'event_id' => $request->id,
             'posisi' => $request->posisi,

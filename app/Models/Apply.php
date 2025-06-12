@@ -16,11 +16,18 @@ class Apply extends Model
         'posisi',
     ];
 
-    
+    protected $primaryKey = 'id_apply';
+
     public function user()
 {
     return $this->belongsTo(User::class);
 }
+
+public function events()
+{
+    return $this->belongsTo(Event::class, 'event_id', 'id');
+}
+
 
 
 }

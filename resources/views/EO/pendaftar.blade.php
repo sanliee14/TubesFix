@@ -1,4 +1,16 @@
 @include('EO.navbar')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @session('success')
+            <script>
+                Swal.fire({
+                    title: "Success",
+                    text: "{{ session('success') }}",
+                    icon: "success"
+                });
+                </script>
+    @endsession
+
     <div class="min-h-screen" style="background-image: url('{{ asset('images/2.png') }}');">
         <!-- Header Section -->
         <div class="py-8 flex justify-center mb-8">

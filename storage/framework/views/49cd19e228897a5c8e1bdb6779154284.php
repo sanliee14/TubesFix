@@ -8,16 +8,35 @@
 <?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php $__sessionArgs = ['error'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+        <script>
+            Swal.fire({
+            title: "Warning",
+            text: "<?php echo e(session('error')); ?>",
+            icon: "warning"
+                    });
+        </script>
+    <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-purple-500/20 to-violet-600/30 backdrop-blur-md overflow-hidden shadow-sm rounded-2xl">
-                <form action="<?php echo e(route('daftar.panitia',$event->id)); ?>" method="POST" class="p-10">
+                <form action="<?php echo e(route('daftar.panitia',$events->id)); ?>" method="POST" class="p-10">
                     <?php echo csrf_field(); ?>
                     <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
                         <!-- Bagian Gambar -->
                         <div class="flex flex-col items-center gap-8">
                             <div class="w-60 h-72 bg-white rounded-xl overflow-hidden flex items-center justify-center shadow-md">
-                                <img src="<?php echo e(asset('storage/' . $event->url_gambar)); ?>" alt="Event Image" class="object-cover w-full h-full">
+                                <img src="<?php echo e(asset('storage/' . $events->url_gambar)); ?>" alt="Event Image" class="object-cover w-full h-full">
                             </div>
                             <button type="submit" class="text-[#FAEBD7] font-semibold bg-purple-700 hover:bg-[#4c12c2] rounded-full px-6 py-3 text-lg w-full md:w-auto transition-colors duration-300 shadow-lg">
                                 Daftar Panitia
@@ -31,7 +50,7 @@
                                 <label for="nama" class="font-semibold text-purple-300 text-lg min-w-[120px]">Nama</label>
                                 <input type="text" id="nama" name="nama" value="<?php echo e(Auth::user()->name); ?>" readonly
                                        class="bg-[#5e17eb] border-none text-[#FAEBD7] outline-none rounded-full px-6 py-2 w-full md:w-100 shadow-inner">
-                                <input type="hidden" name="event_id"><?php echo e($event->id); ?></input>
+                                <input type="hidden" name="event_id"><?php echo e($events->id); ?></input>
                             </div>
 
                             <!-- Posisi -->
