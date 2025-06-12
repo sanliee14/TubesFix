@@ -62,8 +62,13 @@
                 </div>
 
                 {{-- CREATE BUTTON --}}
+<<<<<<< HEAD
                 <!-- <div class="fixed bottom-8 right-8 z-50">
                     <a href="{{ route('user.create_event') }}" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full w-44 h-12 shadow-xl transition-all duration-300 hover:shadow-2xl gap-2 px-6"> -->
+=======
+                <div class="fixed bottom-8 right-8 z-50">
+                    <a href="{{ route('user.create_event') }}" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full w-44 h-12 shadow-xl transition-all duration-300 hover:shadow-2xl gap-2 px-6">
+>>>>>>> 0e40dc0c5a809278d946ecd9c8a065ed11e26ab0
 
                <div class="fixed bottom-8 right-8 z-50">
                     <a href="{{ route('user.create_event') }}" class="flex items-center justify-center bg-blue-900 hover:bg-blue-200 text-[#FAEBD7] font-bold rounded-full w-40 h-12 shadow-xl transition-all duration-300 hover:shadow-2xl gap-2 px-4">
