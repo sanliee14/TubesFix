@@ -39,6 +39,7 @@ Route::post('/create-event', [EventController::class, 'store'])->name('user.stor
 Route::get('/eventeo', [EventController::class, 'eventterdaftar'])->name('eo.eventeo');
 Route::get('/events', [EventController::class, 'index'])->name('user.events');
 Route::get('/status', [StatusController::class, 'index'])->name('user.status');
+Route::get('/totalevent', [EventController::class, 'totalevent'])->name('admin.totalevent');
 Route::get('/already/register', [AuthenticatedSessionController::class, 'create'])->name('users.login');
 Route::post('/detail-status/{id}', [StatusController::class, 'detail'])->name('user.detail-status');
 Route::post('/detail-pendaftar/{id}', [EventController::class, 'detailpendaftar'])->name('eo.detail-pendaftar');

@@ -97,7 +97,7 @@ unset($__sessionArgs); ?>
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('user.events')); ?>"
+    <a href="<?php echo e(route('admin.totalevent')); ?>"
        class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
      Detail
     </a>

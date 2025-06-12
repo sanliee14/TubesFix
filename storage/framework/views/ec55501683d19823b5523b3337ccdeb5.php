@@ -1,19 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
         <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,32 +21,46 @@
     </head>
     <body class="font-sans antialiased">
 
-        {{-- alert start --}}
-        @session('success')
+        
+        <?php $__sessionArgs = ['success'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
         <script>
             Swal.fire({
                 title: "Success",
-                text: "{{ session('success') }}",
+                text: "<?php echo e(session('success')); ?>",
                 icon: "success"
               });
             </script>
-        @endsession
+        <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
 
-        @session('delete')
+        <?php $__sessionArgs = ['delete'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
         <script>
             Swal.fire({
                 title: "Success",
-                text: "{{ session('delete') }}",
+                text: "<?php echo e(session('delete')); ?>",
                 icon: "success"
               });
             </script>
-        @endsession
-        {{-- alert end --}}
+        <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
+        
 
 
-        <!-- <div class="min-h-fit bg-center" style="background-image: url('{{ asset('images/11.png') }}')"> -->
-             @include('admin.nav')
-  <body class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('images/pink.png') }}');">
+        <!-- <div class="min-h-fit bg-center" style="background-image: url('<?php echo e(asset('images/11.png')); ?>')"> -->
+             <?php echo $__env->make('admin.nav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+  <body class="bg-cover bg-center min-h-screen" style="background-image: url('<?php echo e(asset('images/pink.png')); ?>');">
     <div class="flex justify-center items-center py-6 px-2 mb-2 mt-6">
         <div class="bg-pink-200/40 backdrop-blur-sm items-center justify-center rounded-3xl p-12 max-w-7xl w-full flex flex-col lg:flex-row gap-6 shadow-2xl">
 
@@ -64,7 +78,7 @@
 
             <!-- Image Section -->
            <!-- <div class="w-1/2 flex justify-end">
-            <img src="{{ asset('images/poster.png') }}" alt="poster" style="width: 400px; height: 300px auto;" class="w-72 h-auto rounded-lg shadow">
+            <img src="<?php echo e(asset('images/poster.png')); ?>" alt="poster" style="width: 400px; height: 300px auto;" class="w-72 h-auto rounded-lg shadow">
         </div> -->
     </div>
 </div>
@@ -83,7 +97,7 @@
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
-    <a href="{{ route('admin.totalevent') }}"
+    <a href="<?php echo e(route('admin.totalevent')); ?>"
        class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
      Detail
     </a>
@@ -97,7 +111,7 @@
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
-    <a href="{{ route('user.events') }}"
+    <a href="<?php echo e(route('user.events')); ?>"
        class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
       Detail
     </a>
@@ -112,7 +126,7 @@
         jumlah
     </p>
        <div class="mt-10 flex justify-center">
-    <a href="{{ route('user.events') }}"
+    <a href="<?php echo e(route('user.events')); ?>"
        class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
       Detail
     </a>
@@ -201,3 +215,4 @@
     </body>
 </html>
 
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/totalevent.blade.php ENDPATH**/ ?>

@@ -74,11 +74,24 @@ class EventController extends Controller
         return redirect(route('eo.dashboard'))->with('delete','Event berhasil dihapus');
     }
 
+    public function totevent(Request $request){
+        Event::where('id', $request->id)->delete();
+
+        return redirect(route('admin.totalevent'))->with('delete','Event berhasil dihapus');
+    }
+
     public function pendaftar(){
 
         $event = Event::where('user_id', Auth::id())->get();
 
         return view('EO.pendaftar',compact('event'));
+    }
+
+    public function totalevent(){
+
+        // $event = Event::where('user_id', Auth::id())->get();
+
+        return view('admin.totalevent');
     }
 
     public function detailpendaftar(Request $request){

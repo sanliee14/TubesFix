@@ -1,9 +1,8 @@
 <nav x-data="{ open: false }" class="bg-pink-500">
-    
-   @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify- h-16">
+        <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -11,34 +10,10 @@
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if(request()->is('admin*')) 
-                    <h1 class="justify-center text-3xl font-fold">
-                        EventConnect
-                    </h1>
-                        <div class="hidden">
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                    @else
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link> -->
-                        <x-nav-link :href="route('eo.eventeo')" :active="request()->routeIs('user.events')">
-                            {{ __('Events') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('eo.pendaftar')" :active="request()->routeIs('user.status')">
-                            {{ __('Pendaftar') }}
-                        </x-nav-link>
-                    @endif
-                </div>
-                </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden justify-end w-full sm:flex sm:items-center sm:ms-6">
+            <div class="flex items-center sm:ms-6">
                 @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -95,12 +70,6 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             @auth
