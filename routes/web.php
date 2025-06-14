@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\DetailStatusController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,7 @@ Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
+Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

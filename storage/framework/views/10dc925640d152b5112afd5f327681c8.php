@@ -10,7 +10,7 @@
 
     <!-- Overlay -->
     <div class="p-10 rounded-xl text-center max-w-xl w-full">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang!</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang!!!</h1>
         <p class="text-lg text-purple-100 mb-8">Gabung dan temukan event kampus menarik atau daftarkan event kamu!</p>
 
 

@@ -1,4 +1,23 @@
 <?php echo $__env->make('EO.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php $__sessionArgs = ['success'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+            <script>
+                Swal.fire({
+                    title: "Success",
+                    text: "<?php echo e(session('success')); ?>",
+                    icon: "success"
+                });
+                </script>
+    <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
+
     <div class="min-h-screen" style="background-image: url('<?php echo e(asset('images/2.png')); ?>');">
         <!-- Header Section -->
         <div class="py-8 flex justify-center mb-8">

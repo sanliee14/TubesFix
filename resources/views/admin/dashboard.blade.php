@@ -83,7 +83,7 @@
        jumlah
       </p>
        <div class="mt-10 flex justify-center">
-    <a href="{{ route('admin.totalevent') }}"
+    <a href="{{ route('admin.detailevent') }}"
        class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
      Detail
     </a>
@@ -121,34 +121,6 @@
   </div>
 </section>
 
-<!-- <div class="bg-pink-200/40 backdrop-blur-sm items-center justify-center rounded-3xl mt-10 p-12 max-w-7xl w-full flex flex-col lg:flex-row gap-6 shadow-2xl"> -->
-<div class="rounded-2xl w-full flex flex-col mt-12 max-w-7xl mx-auto overflow-x-auto">
-  <table class="min-w-full text-left text-sm">
-    <thead>
-      <tr class="bg-pink-300/70 text-[#2B0052] font-semibold">
-        <th class="px-6 py-3">Nama Event</th>
-        <th class="px-6 py-3">Tanggal</th>
-        <th class="px-6 py-3">Jumlah Panitia</th>
-        <th class="px-6 py-3">Aksi</th>
-      </tr>
-    </thead>
-    <tbody class="bg-pink-50 text-black">
-      <tr class="border-b border-pink-200">
-        <td class="px-6 py-3">Festival Budaya</td>
-        <td class="px-6 py-3">20 Juni 2025</td>
-        <td class="px-6 py-3">5</td>
-        <td class="px-6 py-3">
-          <button class="bg-pink-600 hover:bg-pink-700 text-white font-medium px-4 py-1 rounded-full transition">
-            Detail
-          </button>
-        </td>
-      </tr>
-      <!-- Tambahkan baris lainnya jika perlu -->
-    </tbody>
-  </table>
-</div>
-
-</div>
 <!-- Footer Section -->
 <footer class="mt-10 bg-pink-200/60 backdrop-blur-sm animate-gradient-x">
     <div class="max-w-7xl mx-auto py-14 px-10 grid md:grid-cols-3 gap-10 items-start">

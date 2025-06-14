@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Apply;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -88,12 +88,6 @@ class EventController extends Controller
         return view('EO.pendaftar',compact('event'));
     }
 
-    public function totalevent(){
-
-        // $event = Event::where('user_id', Auth::id())->get();
-
-        return view('admin.totalevent');
-    }
 
     public function detailpendaftar(Request $request){
         $detail = Apply::where('event_id',$request->id)->get();
