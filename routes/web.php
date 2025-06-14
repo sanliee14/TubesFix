@@ -1,16 +1,16 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\StatusController;
-use App\Http\Controllers\DetailStatusController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use Illuminate\Auth\Events\Authenticated;
+use App\Http\Controllers\AdminConteroller;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserPageController;
+use App\Http\Controllers\DetailStatusController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use Illuminate\Auth\Events\Authenticated;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 Route::get('/', function () {
@@ -50,11 +50,15 @@ Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
+<<<<<<< HEAD
 Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
 Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');
 Route::get('/eventeo', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
 Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
 Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
+=======
+Route::get('/detailevent', [AdminConteroller::class, 'detailevent'])->name('admin.detailevent');
+>>>>>>> 9ec0c1062b2b5c62e3756013cf507ad85a13a18f
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
