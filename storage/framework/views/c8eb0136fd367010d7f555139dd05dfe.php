@@ -60,81 +60,34 @@ unset($__sessionArgs); ?>
 
         <!-- <div class="min-h-fit bg-center" style="background-image: url('<?php echo e(asset('images/11.png')); ?>')"> -->
              <?php echo $__env->make('admin.nav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
-  <body class="bg-cover bg-center min-h-screen" style="background-image: url('<?php echo e(asset('images/pink.png')); ?>');">
-    <div class="flex justify-center items-center py-6 px-2 mb-2 mt-6">
-        <div class="bg-pink-200/40 backdrop-blur-sm items-center justify-center rounded-3xl p-12 max-w-7xl w-full flex flex-col lg:flex-row gap-6 shadow-2xl">
 
-            <!-- Text Section -->
-            <div class="text-center w-full text-[#f7e7c2] space-y-6">
-    <h1 class="text-4xl md:text-5xl font-extrabold text-pink-700 leading-tight drop-shadow-lg">
-        Welcome Admin!!
-    </h1>
-    <p class="text-lg md:text-xl leading-relaxed text-pink-600 max-w-2xl mx-auto">
-        Dashboard ini dirancang untuk memberikan Anda akses cepat ke semua informasi penting. Nikmati kemudahan dalam mengelola event dengan antarmuka yang intuitif dan menarik.
-    </p>
+<div class="rounded-2xl w-full flex flex-col mt-12 max-w-7xl mx-auto overflow-x-auto">
+  <table class="min-w-full text-left text-sm">
+    <thead>
+      <tr class="bg-pink-300/70 text-[#2B0052] font-semibold">
+        <th class="px-6 py-3">Nama Event</th>
+        <th class="px-6 py-3">Tanggal</th>
+        <th class="px-6 py-3">Jumlah Panitia</th>
+        <th class="px-6 py-3">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="bg-pink-50 text-black">
+      <tr class="border-b border-pink-200">
+        <td class="px-6 py-3">Festival Budaya</td>
+        <td class="px-6 py-3">20 Juni 2025</td>
+        <td class="px-6 py-3">5</td>
+        <td class="px-6 py-3">
+          <button class="bg-pink-600 hover:bg-pink-700 text-white font-medium px-4 py-1 rounded-full transition">
+            Detail
+          </button>
+        </td>
+      </tr>
+      <!-- Tambahkan baris lainnya jika perlu -->
+    </tbody>
+  </table>
 </div>
 
-                
-
-            <!-- Image Section -->
-           <!-- <div class="w-1/2 flex justify-end">
-            <img src="<?php echo e(asset('images/poster.png')); ?>" alt="poster" style="width: 400px; height: 300px auto;" class="w-72 h-auto rounded-lg shadow">
-        </div> -->
-    </div>
 </div>
-
-    </div> 
-
-<article id="how">
-<section class="bg-pink-300/30 backdrop-blur-md py-12 px-6 mt-10 rounded-xl shadow-lg max-w-7xl mx-auto">
-  
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-    <!-- Step 1 -->
-    <div class="bg-pink-100 opacity-100 p-6 rounded-xl shadow-md space-y-4">
-      <!-- <div class="text-6xl">🖱️</div> -->
-      <h3 class="text-3xl font-bold text-blue-800">Total Event</h3>
-      <p class="text-xl text-gray-700">
-       jumlah
-      </p>
-       <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('admin.detailevent')); ?>"
-       class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
-     Detail
-    </a>
-  </div>
-    </div>
-    <!-- Step 2 -->
-    <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
-      <!-- <div class="text-6xl">📋</div> -->
-      <h3 class="text-3xl font-bold text-blue-800">Total EO</h3>
-      <p class="text-xl text-gray-700">
-       jumlah
-      </p>
-       <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('user.events')); ?>"
-       class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
-      Detail
-    </a>
-  </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
-    <!-- <div class="text-6xl">✅❌</div> -->
-    <h3 class="text-3xl font-bold text-blue-800">Total Panitia</h3>
-    <p class="text-xl text-gray-700">
-        jumlah
-    </p>
-       <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('user.events')); ?>"
-       class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
-      Detail
-    </a>
-  </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer Section -->
 <footer class="mt-10 bg-pink-200/60 backdrop-blur-sm animate-gradient-x">
     <div class="max-w-7xl mx-auto py-14 px-10 grid md:grid-cols-3 gap-10 items-start">
@@ -187,4 +140,4 @@ unset($__sessionArgs); ?>
     </body>
 </html>
 
-<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detailevent.blade.php ENDPATH**/ ?>
