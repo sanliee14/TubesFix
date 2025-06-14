@@ -35,24 +35,26 @@
                             <th class="px-6 py-4">Lebih Lanjut</th>
                         </tr>
                     </thead>
+                    @foreach ($event as $item)
                     <tbody class="divide-y divide-pink-200">
                         <tr class="hover:bg-pink-50/70">
                             <td class="px-6 py-4">
-                                nama
+                                {{ $item->nama_event }}
                             </td>
                             <td class="px-6 py-4">
-
+                                {{ $item->created_at }}
                             </td>
                             <td class="px-6 py-4">
-
+                                {{ $panitiaCounts[$item->id] ?? 0 }}
                             </td>
                             <td class="px-6 py-4">
-                              <a href="{{ route('admin.panitevent') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
-                                Detail
-                            </a>
+                                <a href="{{ route('admin.panitevent') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
+                                    Detail
+                                </a>
                             </td>
                         </tr>
                     </tbody>
+                @endforeach
                 </table>
             </div>
         </div>

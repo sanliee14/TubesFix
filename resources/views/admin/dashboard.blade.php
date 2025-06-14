@@ -45,17 +45,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="bg-pink-100 opacity-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total Event</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl text-gray-700">{{ $totalEvent }}</p>
                         <div class="mt-10 flex justify-center">
                             <a href="{{ route('admin.detailevent') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total EO</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl text-gray-700">{{ $totalEO }}</p>
                         <div class="mt-10 flex justify-center">
                             <a href="{{ route('admin.detaileo') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail
@@ -65,7 +65,7 @@
 
                     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total Panitia</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl text-gray-700">{{ $totalPanitia }}</p>
                         <div class="mt-10 flex justify-center">
                             <a href="{{ route('admin.detailvol') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail

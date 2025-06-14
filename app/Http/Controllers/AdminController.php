@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apply;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -48,9 +51,17 @@ class AdminController extends Controller
     }
 
     public function detailevent()
-{
-    return view('admin.detailevent');
-}
+    {
+        $event = Event::all();
+
+        $panitiaCounts = Apply::select('event_id', DB::raw('count(*) as total_panitia'))
+        ->where('status', 'diterima')
+        ->groupBy('event_id')
+        ->pluck('total_panitia', 'event_id');
+
+
+        return view('admin.detailevent', compact('event', 'panitiaCounts'));
+    }
 
     public function panitevent()
 {
