@@ -14,7 +14,7 @@
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                      @foreach ($events as $item)
                 <div class="bg-blue-300/60 backdrop-blur-lg backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
-                        
+
                 {{-- EVENT IMAGE --}}
                        <div class="bg-blue-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-blue-400/30">
                             <img src="{{ asset('storage/' . $item->url_gambar) }}"
@@ -31,6 +31,11 @@
                             {{-- EVENT DESCRIPTION --}}
                             <p class="text-gray-700 text-semibold text-lg line-clamp-2">
                                 {{ $item->deskripsi }}
+                            </p>
+
+                            <p class="text-gray-700 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                {{ $item->lokasi}}
                             </p>
 
                             {{-- EVENT DATES --}}
@@ -51,7 +56,7 @@
 
                             <form action="/delete/{{$item->id}}" method="POST" class="flex-1">
                                 @csrf
-                                
+
                                 <button type="submit" class="w-full px-4 py-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fas fa-trash text-sm"></i> Hapus
                                 </button>

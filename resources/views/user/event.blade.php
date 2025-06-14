@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden rounded-2xl">
                 <div class="p-8 flex flex-col items-center">
-                    
+
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     @session('success')
                     <script>
@@ -47,6 +47,11 @@
                                     {{-- DESKRIPSI --}}
                                     <p class="text-purple-200 text-center text-sm line-clamp-2">
                                         {{ $item->deskripsi }}
+                                    </p>
+
+                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                        {{ $item->lokasi }}
                                     </p>
 
                                     {{-- TANGGAL --}}

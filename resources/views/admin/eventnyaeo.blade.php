@@ -45,6 +45,11 @@
                                 {{ $item->deskripsi }}
                             </p>
 
+                            <p class="text-pink-800 font-medium text-sm line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot mr-2"></i>
+                                {{ $item->lokasi }}
+                            </p>
+
                             {{-- EVENT DATES --}}
                             <div class="bg-pink-200/50 px-3 py-2 rounded-lg">
                                 <p class="text-pink-800 text-sm font-medium">

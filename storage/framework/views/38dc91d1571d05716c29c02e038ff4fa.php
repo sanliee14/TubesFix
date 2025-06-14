@@ -63,6 +63,16 @@
 
                         <div class="flex items-center gap-4">
                             <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
+                               Lokasi
+                            </div>
+                            <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">
+                                <?php echo e($item->lokasi); ?>
+
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
                                Jumlah Panitia
                             </div>
                             <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">

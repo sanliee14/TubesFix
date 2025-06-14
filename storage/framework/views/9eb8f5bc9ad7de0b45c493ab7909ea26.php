@@ -14,7 +14,7 @@
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                      <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="bg-blue-300/60 backdrop-blur-lg backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
-                        
+
                 
                        <div class="bg-blue-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-blue-400/30">
                             <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>"
@@ -32,6 +32,11 @@
                             
                             <p class="text-gray-700 text-semibold text-lg line-clamp-2">
                                 <?php echo e($item->deskripsi); ?>
+
+                            </p>
+
+                            <p class="text-gray-700 text-semibold text-lg line-clamp-2">
+                                <?php echo e($item->lokasi); ?>
 
                             </p>
 
@@ -54,7 +59,7 @@
 
                             <form action="/delete/<?php echo e($item->id); ?>" method="POST" class="flex-1">
                                 <?php echo csrf_field(); ?>
-                                
+
                                 <button type="submit" class="w-full px-4 py-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fas fa-trash text-sm"></i> Hapus
                                 </button>
