@@ -2,6 +2,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('<?php echo e(asset('images/66.jpg')); ?>')">
             
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <?php $__sessionArgs = ['success'];
 if (session()->has($__sessionArgs[0])) :
 if (isset($value)) { $__sessionPrevious[] = $value; }
@@ -46,26 +47,33 @@ unset($__sessionArgs); ?>
                             <th class="px-6 py-4 w-1/6 text-center">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-pink-200">
-                        <tr class="hover:bg-pink-50/70">
-                            <td class="px-6 py-4 font-medium text-[#2B0052]">
-                                <div class="flex items-center gap-3">
-                                    <div>
-                                        <p class="font-bold">
-                                            Nama EO
-                                        </p>
+                    <?php $__currentLoopData = $panitia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tbody class="divide-y divide-pink-200">
+                            <tr class="hover:bg-pink-50/70">
+                                <td class="px-6 py-4 font-medium text-[#2B0052]">
+                                    <div class="flex items-center gap-3">
+                                        <div>
+                                            <p class="font-bold">
+                                                <?php echo e($item->name); ?>
+
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="<?php echo e(route('admin.eventnyaeo')); ?>" class="inline-block bg-pink-400 hover:bg-pink-500 text-[#2B0052] font-semibold px-6 py-2 rounded-full transition-colors duration-200">
-                                  Detail
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <form method="POST" action="<?php echo e(route('admin.eventnyaeo',$item->id)); ?>">
+                                        <?php echo csrf_field(); ?>
+                                            <button class="inline-block bg-pink-400 hover:bg-pink-500 text-[#2B0052] font-semibold px-6 py-2 rounded-full transition-colors duration-200">
+                                                Detail
+                                            </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </table>
             </div>
         </div>
     </body>
-</html><?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detaileo.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detaileo.blade.php ENDPATH**/ ?>

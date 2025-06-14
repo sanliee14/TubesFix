@@ -48,9 +48,12 @@
                                 {{ $panitiaCounts[$item->id] ?? 0 }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('admin.panitevent') }}" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
-                                    Detail
-                                </a>
+                                <form method="POST" action="{{ route('admin.panitevent',$item->id) }}">
+                                    @csrf
+                                    <button class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
+                                        Detail
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>

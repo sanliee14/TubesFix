@@ -4,13 +4,16 @@
 
             <div class="bg-pink-300/40 backdrop-blur-md rounded-3xl p-8 max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                    @foreach ($detailEvent as $item)
+
+
                     <div class="md:col-span-1">
 
                         <div class="bg-pink-300/50 rounded-2xl aspect-square flex items-center justify-center mb-4">
                             <div class="w-60 h-72 bg-white gambar rounded-xl overflow-hidden flex  justify-center">
-                               
-                                    <img src="" alt="Gambar Event" class="object-cover">
-                              
+
+                                    <img src="{{ asset('storage/'. $item->url_gambar) }}" alt="Gambar Event" class="object-cover">
+
                         </div>
                             <!-- <div class="text-purple-600 text-center">
                                 <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
@@ -19,9 +22,9 @@
                                 <p class="text-sm">Foto Event</p>
                             </div> -->
                         </div>
-                        
-                        <h2 class="text-[#FAEBD7] text-xl font-bold text-center">Nama Event</h2>
-                       
+
+                        <h2 class="text-[#FAEBD7] text-xl font-bold text-center">{{ $item->nama_event }}</h2>
+
                     </div>
 
                     <!-- Event Information -->
@@ -32,40 +35,49 @@
                                 Tanggal Mulai
                             </div>
                             <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">
-                                
+                                {{ $item->tanggal_mulai }}
                             </div>
                         </div>
 
                         <!-- Tanggal Selesai -->
                         <div class="flex items-center gap-4">
                             <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
-                                Tanggal Berakhir
+                                Tanggal Selesai
                             </div>
                             <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">
-                               
+                                {{ $item->tanggal_selesai }}
                             </div>
                         </div>
 
                         <div class="flex items-center gap-4">
                             <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
-                               Keterangan
+                               Deskripsi
                             </div>
                             <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">
-                               
+                                {{ $item->deskripsi }}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
+                               Jumlah Panitia
+                            </div>
+                            <div class="flex-1 bg-pink-200 rounded-full px-6 py-3 text-purple-800 font-medium">
+                                {{ $panitiaCounts[$item->id] ?? 0 }}
                             </div>
                         </div>
 
                         <!-- Status -->
                         <div class="flex items-center gap-4">
                             <div class="bg-pink-400 text-white px-6 py-3 rounded-full font-semibold w-48 text-center">
-                                Jumlah Panitia
+                                Status
                             </div>
                             <div class="flex-1 bg-green-200 rounded-full px-6 py-3 text-green-800 font-medium">
-                                
-                             
+                                {{ $item->status }}
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

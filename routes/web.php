@@ -51,11 +51,7 @@ Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
-Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
-Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');
-Route::get('/eventeo', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
-Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
-Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
+
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -65,7 +61,13 @@ Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.
 
 
 route::middleware('admin')->group(function () {
-    route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
+route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
+Route::post('/detaileo/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete.event');
+Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
+Route::post('/panitevent/{id}', [AdminController::class, 'panitevent'])->name('admin.panitevent');
+Route::post('/detaileo/{id}', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
+Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
+Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
 });
 
 

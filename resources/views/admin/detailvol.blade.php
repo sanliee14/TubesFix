@@ -35,24 +35,28 @@
                             <th class="px-6 py-4">Tanggal Diterima</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-pink-200">
-                        <tr class="hover:bg-pink-50/70">
-                            <td class="px-6 py-4">
-                                nama
-                            </td>
-                            <td class="px-6 py-4">
+                    @foreach ($user as $item)
 
-                            </td>
-                            <td class="px-6 py-4">
+                        <tbody class="divide-y divide-pink-200">
+                            <tr class="hover:bg-pink-50/70">
+                                <td class="px-6 py-4">
+                                    {{ $item->user->name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->events->nama_event }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->posisi }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->updated_at }}
+                                </td>
+                                </td>
+                            </tr>
+                            <!-- Additional rows would go here -->
+                        </tbody>
 
-                            </td>
-                            <td class="px-6 py-4">
-
-                            </td>
-                            </td>
-                        </tr>
-                        <!-- Additional rows would go here -->
-                    </tbody>
+                    @endforeach
                 </table>
             </div>
         </div>

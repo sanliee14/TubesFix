@@ -65,9 +65,12 @@ unset($__sessionArgs); ?>
 
                             </td>
                             <td class="px-6 py-4">
-                                <a href="<?php echo e(route('admin.panitevent')); ?>" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
-                                    Detail
-                                </a>
+                                <form method="POST" action="<?php echo e(route('admin.panitevent',$item->id)); ?>">
+                                    <?php echo csrf_field(); ?>
+                                    <button class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
+                                        Detail
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>

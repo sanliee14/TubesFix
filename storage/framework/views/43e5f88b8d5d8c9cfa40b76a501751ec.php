@@ -49,26 +49,35 @@ unset($__sessionArgs); ?>
                             <th class="px-6 py-4">Tanggal Diterima</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-pink-200">
-                        <tr class="hover:bg-pink-50/70">
-                            <td class="px-6 py-4">
-                                nama
-                            </td>
-                            <td class="px-6 py-4">
+                    <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                            </td>
-                            <td class="px-6 py-4">
+                        <tbody class="divide-y divide-pink-200">
+                            <tr class="hover:bg-pink-50/70">
+                                <td class="px-6 py-4">
+                                    <?php echo e($item->user->name); ?>
 
-                            </td>
-                            <td class="px-6 py-4">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?php echo e($item->events->nama_event); ?>
 
-                            </td>
-                            </td>
-                        </tr>
-                        <!-- Additional rows would go here -->
-                    </tbody>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?php echo e($item->posisi); ?>
+
+                                </td>
+                                <td class="px-6 py-4">
+                                    <?php echo e($item->updated_at); ?>
+
+                                </td>
+                                </td>
+                            </tr>
+                            <!-- Additional rows would go here -->
+                        </tbody>
+
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </table>
             </div>
         </div>
     </body>
-</html><?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detailvol.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detailvol.blade.php ENDPATH**/ ?>

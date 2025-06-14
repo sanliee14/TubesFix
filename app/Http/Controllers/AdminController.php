@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Apply;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {
@@ -63,39 +65,41 @@ class AdminController extends Controller
         return view('admin.detailevent', compact('event', 'panitiaCounts'));
     }
 
-    public function panitevent()
+    public function panitevent(Request $request)
 {
-    return view('admin.panitevent');
+    $detailEvent = Event::where('id',$request->id)->get();
+    $panitiaCounts = Apply::select('event_id', DB::raw('count(*) as total_panitia'))
+        ->where('status', 'diterima')
+        ->groupBy('event_id')
+        ->pluck('total_panitia', 'event_id');
+    return view('admin.panitevent',compact('detailEvent','panitiaCounts'));
 }
 
-    public function eventnyaeo()
+    public function eventnyaeo(Request $request)
 {
-    return view('admin.eventnyaeo');
+    $event = Event::where('user_id',$request->id)->get();
+    return view('admin.eventnyaeo',compact('event'));
 }
 
     public function detailvol()
 {
-    return view('admin.detailvol');
+    $user = Apply::with('user')
+    ->with('events')
+    ->where('status','diterima')
+    ->get();
+
+    return view('admin.detailvol',compact('user'));
 }
 
     public function detaileo()
 {
-    return view('admin.detaileo');
+    $panitia = User::where('role','eo')->get();
+    return view('admin.detaileo',compact('panitia'));
 }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+public function delete(Request $request){
+    Event::where('id',$request->id)->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    return redirect(route('admin.detaileo'))->with('success','Event berhasil dihapus');
+}
 }

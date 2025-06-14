@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use App\Models\User;
+use App\Models\Apply;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +13,7 @@ class HomeController extends Controller
     {
         $totalEvent = Event::count();
         $totalEO = User::where('role', 'eo')->count();
-        $totalPanitia = User::where('role', 'user')->count();
+        $totalPanitia = Apply::where('status', 'diterima')->count();
 
         return view('admin.dashboard', compact('totalEvent', 'totalEO', 'totalPanitia'));
     }
