@@ -1,5 +1,5 @@
 <x-app-layout>
-    <body class="bg-cover bg-center min-h-screen" style="background-image: url('/path/to/bg-stars.jpg');">
+    <body class="bg-cover bg-center min-h-screen " style="background-image: url('/path/to/bg-stars.jpg');">
       <div class="flex justify-center items-center px-6 min-h-[65vh]">
           <div class="bg-gradient-to-br from-black/70 to-slate-800/80 backdrop-blur-md rounded-3xl p-12 max-w-7xl w-full flex flex-col lg:flex-row gap-10 shadow-2xl">
 

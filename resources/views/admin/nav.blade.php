@@ -1,13 +1,14 @@
-<nav x-data="{ open: false }" class="bg-pink-500">
+<nav x-data="{ open: false }" class="bg-[#FF69B4]">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
+            <div class="flex items-center space-x-4">
+                <!-- Logo with Text -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard') }}" class="flex items-center">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <span class="ml-3 text-2xl font-bold text-[#FFD1DC] tracking-tight font-['figtree']">EventConnect</span>
                     </a>
                 </div>
             </div>

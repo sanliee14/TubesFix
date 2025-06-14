@@ -51,6 +51,10 @@ Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tola
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
 Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
+Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');
+Route::get('/eventeo', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
+Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
+Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
