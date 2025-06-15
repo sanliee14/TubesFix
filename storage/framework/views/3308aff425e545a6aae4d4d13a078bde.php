@@ -214,4 +214,5 @@
             <?php endif; ?>
         </div>
     </div>
-</nav><?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/nav.blade.php ENDPATH**/ ?>
+</nav>
+<?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/nav.blade.php ENDPATH**/ ?>
