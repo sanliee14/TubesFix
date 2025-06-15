@@ -45,20 +45,17 @@ Route::get('/already/register', [AuthenticatedSessionController::class, 'create'
 Route::post('/detail-status/{id}', [StatusController::class, 'detail'])->name('user.detail-status');
 Route::post('/detail-pendaftar/{id}', [EventController::class, 'detailpendaftar'])->name('eo.detail-pendaftar');
 Route::get('/pendaftar', [EventController::class, 'pendaftar'])->name('eo.pendaftar');
+Route::get('/editevent', [EventController::class, 'editevent'])->name('eo.edit');
 Route::post('/delete/{id}', [EventController::class, 'hapusevent']);
 Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->name('daftar.panitia');
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
-<<<<<<< HEAD
 Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
 Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');
 Route::get('/eventeo', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
 Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
 Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
-=======
-Route::get('/detailevent', [AdminConteroller::class, 'detailevent'])->name('admin.detailevent');
->>>>>>> 9ec0c1062b2b5c62e3756013cf507ad85a13a18f
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

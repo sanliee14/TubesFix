@@ -69,6 +69,12 @@ class EventController extends Controller
         return view('EO.eventeo', compact('events'));
     }
 
+    public function editevent() {
+        // $events = Event::where('user_id', Auth::id())->get();
+
+        return view('EO.edit');
+    }
+
     public function hapusevent(Request $request){
         Event::where('id', $request->id)->delete();
 
