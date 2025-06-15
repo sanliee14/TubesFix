@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden rounded-2xl">
                 <div class="p-8 flex flex-col items-center">
-                    
+
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <?php $__sessionArgs = ['success'];
 if (session()->has($__sessionArgs[0])) :
@@ -64,6 +64,11 @@ unset($__sessionArgs); ?>
                                     
                                     <p class="text-purple-200 text-center text-sm line-clamp-2">
                                         <?php echo e($item->deskripsi); ?>
+
+                                    </p>
+
+                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
+                                        <?php echo e($item->lokasi); ?>
 
                                     </p>
 

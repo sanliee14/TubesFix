@@ -1,143 +1,83 @@
 
-<!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
-
-        <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    </head>
     <body class="font-sans antialiased">
-
-        
-        <?php $__sessionArgs = ['success'];
+        <div class="min-h-screen bg-cover bg-center " style="background-image: url('<?php echo e(asset('images/66.jpg')); ?>')">
+            
+            <?php $__sessionArgs = ['success'];
 if (session()->has($__sessionArgs[0])) :
 if (isset($value)) { $__sessionPrevious[] = $value; }
 $value = session()->get($__sessionArgs[0]); ?>
-        <script>
-            Swal.fire({
-                title: "Success",
-                text: "<?php echo e(session('success')); ?>",
-                icon: "success"
-              });
+            <script>
+                Swal.fire({
+                    title: "Success",
+                    text: "<?php echo e(session('success')); ?>",
+                    icon: "success"
+                });
             </script>
-        <?php unset($value);
+            <?php unset($value);
 if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
 if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
 endif;
 unset($__sessionArgs); ?>
 
-        <?php $__sessionArgs = ['delete'];
+            <?php $__sessionArgs = ['delete'];
 if (session()->has($__sessionArgs[0])) :
 if (isset($value)) { $__sessionPrevious[] = $value; }
 $value = session()->get($__sessionArgs[0]); ?>
-        <script>
-            Swal.fire({
-                title: "Success",
-                text: "<?php echo e(session('delete')); ?>",
-                icon: "success"
-              });
+            <script>
+                Swal.fire({
+                    title: "Success",
+                    text: "<?php echo e(session('delete')); ?>",
+                    icon: "success"
+                });
             </script>
-        <?php unset($value);
+            <?php unset($value);
 if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
 if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
 endif;
 unset($__sessionArgs); ?>
-        
+            
 
+            <?php echo $__env->make('admin.nav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
-        <!-- <div class="min-h-fit bg-center" style="background-image: url('<?php echo e(asset('images/11.png')); ?>')"> -->
-             <?php echo $__env->make('admin.nav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <div class="rounded-2xl w-full flex flex-col mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
+                <table class="min-w-full text-left text-sm bg-white bg-opacity-80 backdrop-blur-sm rounded-lg overflow-hidden">
+                    <thead>
+                        <tr class="bg-pink-300/70 text-[#2B0052] font-semibold">
+                            <th class="px-6 py-4">Nama Event</th>
+                            <th class="px-6 py-4">Tanggal</th>
+                            <th class="px-6 py-4">Jumlah Panitia</th>
+                            <th class="px-6 py-4">Lebih Lanjut</th>
+                        </tr>
+                    </thead>
+                    <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tbody class="divide-y divide-pink-200">
+                        <tr class="hover:bg-pink-50/70">
+                            <td class="px-6 py-4">
+                                <?php echo e($item->nama_event); ?>
 
-<div class="rounded-2xl w-full flex flex-col mt-12 max-w-7xl mx-auto overflow-x-auto">
-  <table class="min-w-full text-left text-sm">
-    <thead>
-      <tr class="bg-pink-300/70 text-[#2B0052] font-semibold">
-        <th class="px-6 py-3">Nama Event</th>
-        <th class="px-6 py-3">Tanggal</th>
-        <th class="px-6 py-3">Jumlah Panitia</th>
-        <th class="px-6 py-3">Aksi</th>
-      </tr>
-    </thead>
-    <tbody class="bg-pink-50 text-black">
-      <tr class="border-b border-pink-200">
-        <td class="px-6 py-3">Festival Budaya</td>
-        <td class="px-6 py-3">20 Juni 2025</td>
-        <td class="px-6 py-3">5</td>
-        <td class="px-6 py-3">
-          <button class="bg-pink-600 hover:bg-pink-700 text-white font-medium px-4 py-1 rounded-full transition">
-            Detail
-          </button>
-        </td>
-      </tr>
-      <!-- Tambahkan baris lainnya jika perlu -->
-    </tbody>
-  </table>
-</div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?php echo e($item->created_at); ?>
 
-</div>
-<!-- Footer Section -->
-<footer class="mt-10 bg-pink-200/60 backdrop-blur-sm animate-gradient-x">
-    <div class="max-w-7xl mx-auto py-14 px-10 grid md:grid-cols-3 gap-10 items-start">
-        <!-- Logo & Deskripsi -->
-        <div class="flex flex-col items-start space-y-4">
-            <p class="text-[#2B0052] font-medium">
-                Melalui fitur-fitur yang disediakan, EventConnect berkomitmen menjadi bagian penting dalam pertumbuhan generasi muda kampus yang lebih kreatif, partisipatif, dan berdaya saing.
-            </p>
-        </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <?php echo e($panitiaCounts[$item->id] ?? 0); ?>
 
-        <!-- Kontak -->
-        <div>
-            <h3 class="text-lg font-bold text-[#2B0052] mb-2">KANTOR PUSAT</h3>
-            <p class="text-[#2B0052] mb-2">
-                Jalan Setia Buntu<br>
-                Kab. Menyala-2<br>
-                <em>Medan, Indonesia</em>
-            </p>
-            <div class="flex flex-col gap-2 text-[#2B0052]">
-                <p><i class="fas fa-envelope mr-2"></i> pusateventconnect@gmail.com</p>
-                <p><i class="fas fa-phone mr-2"></i> +62 813 993587782</p>
+                            </td>
+                            <td class="px-6 py-4">
+                                <form method="POST" action="<?php echo e(route('admin.panitevent',$item->id)); ?>">
+                                    <?php echo csrf_field(); ?>
+                                    <button class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
+                                        Detail
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </table>
             </div>
-        </div>
-
-        <!-- Media Sosial -->
-        <div>
-            <h3 class="text-lg font-bold text-[#2B0052] mb-2">Follow Us</h3>
-            <div class="flex space-x-4 text-2xl text-[#2B0052]">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Bottom -->
-     <article id="help">
-      <div class="border-t border-[#2d0c57] text-center py-6 text-[#2B0052] text-sm">
-        <div class="flex justify-center space-x-10 mb-2">
-            <a href="#" class="underline hover:text-[#5e17eb]">Legal Terms</a>
-            <a href="#" class="underline hover:text-[#5e17eb]">Privacy Policy</a>
-            <a href="#" class="underline hover:text-[#5e17eb]">Accessibility</a>
-        </div>
-        <p>&copy; 2025 - EventConnect All Rights Reserved.</p>
-    </div>
-     </article>
-</footer>
-</div>
         </div>
     </body>
 </html>
-
 <?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/admin/detailevent.blade.php ENDPATH**/ ?>
