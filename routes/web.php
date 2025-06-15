@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('profile.edit');
+});
+
 Route::middleware('user')->group(function () {
     Route::get('/dashboard', function () {
     return view('dashboard');
@@ -52,15 +56,11 @@ Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 
-<<<<<<< HEAD
 Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
 Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');
 Route::get('/eventeo', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
 Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
 Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
-=======
-
->>>>>>> 7d34c7a6820ab99a01d650084bb0473f7c480c5f
 
 Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
