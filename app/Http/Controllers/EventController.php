@@ -129,6 +129,8 @@ class EventController extends Controller
 
     public function edit(Request $request){
         $event = Event::findOrFail($request->id);
+
+
         return view('EO.edit',compact('event'));
     }
 

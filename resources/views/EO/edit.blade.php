@@ -12,23 +12,23 @@
                     <div class="flex flex-col gap-4 w-[32rem]">
                         <div class="flex justify-between items-center">
                             <label for="nama" class="font-semibold text-lg">Nama Event</label>
-                            <input type="text" id="nama" name="nama" class="bg-blue-200 border-none outline-white rounded-full w-80">
+                            <input type="text" id="nama" name="nama" class="bg-blue-200 border-none outline-white rounded-full w-80" value="{{ old('nama', $event->nama_event) }}">
                         </div>
                         <div class="flex justify-between items-center">
                             <label for="mulai" class="font-semibold text-lg">Tanggal Mulai</label>
-                            <input type="date" id="mulai" name="mulai" class="bg-blue-200  border-none outline-white rounded-full w-80">
+                            <input type="date" id="mulai" name="mulai"class="bg-blue-200  border-none outline-white rounded-full w-80" value="{{ old('nama', $event->tanggal_mulai) }}">
                         </div>
                         <div class="flex justify-between items-center">
                             <label for="selesai" class="font-semibold text-lg">Tanggal Selesai</label>
-                            <input type="date" id="selesai" name="selesai" class="bg-blue-200  border-none outline-white rounded-full w-80">
+                            <input type="date" id="selesai" name="selesai" class="bg-blue-200  border-none outline-white rounded-full w-80" value="{{ old('nama', $event->tanggal_selesai) }}">
                         </div>
                         <div class="flex justify-between items-center">
                             <label for="lokasi" class="font-semibold text-lg">Lokasi</label>
-                            <input type="text" id="lokasi" name="lokasi" class="bg-blue-200  border-none outline-white rounded-full w-80">
+                            <input type="text" id="lokasi" name="lokasi" class="bg-blue-200  border-none outline-white rounded-full w-80" value="{{ old('nama', $event->lokasi) }}">
                         </div>
                         <div class="flex flex-col gap-3">
                             <label for="deskripsi" class="font-semibold text-lg">Deskripsi</label>
-                            <textarea id="deskripsi" name="deskripsi" class="bg-blue-200  border-none outline-white rounded-xl p-2"></textarea>
+                            <textarea id="deskripsi" name="deskripsi" class="bg-blue-200 border-none outline-white rounded-xl p-2" value="{{ old('nama', $event->deskripsi) }}"></textarea>
                         </div>
                     </div>
                 </form>
