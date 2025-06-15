@@ -68,6 +68,7 @@ unset($__sessionArgs); ?>
                                     </p>
 
                                     <p class="text-purple-200 text-center text-sm line-clamp-2">
+                                        <i class="fa-solid fa-map-location-dot"></i>
                                         <?php echo e($item->lokasi); ?>
 
                                     </p>

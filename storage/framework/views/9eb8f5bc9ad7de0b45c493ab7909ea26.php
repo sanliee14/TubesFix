@@ -36,6 +36,7 @@
                             </p>
 
                             <p class="text-gray-700 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
                                 <?php echo e($item->lokasi); ?>
 
                             </p>
@@ -53,9 +54,12 @@
 
                         
                         <div class="flex justify-center gap-4 w-full pt-2">
-                            <a href="#" class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-edit text-sm"></i> Edit
-                            </a>
+                        <form method="GET" action="<?php echo e(route('eo.edit',$item->id)); ?>">
+                                <?php echo csrf_field(); ?>
+                                    <button class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                        <i class="fas fa-edit text-sm"></i> Edit
+                                    </button>
+                            </form>
 
                             <form action="/delete/<?php echo e($item->id); ?>" method="POST" class="flex-1">
                                 <?php echo csrf_field(); ?>

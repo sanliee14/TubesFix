@@ -1,61 +1,56 @@
 @include('EO.navbar')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<div class="min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/2.png') }}');">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-4">
-        <div class="overflow-hidden rounded-2xl">
-            <div class="p-8 flex flex-col gap-12 items-center text-center">
-
-                {{-- PAGE TITLE --}}
-                <div class="shadow-md">
-                    <h1 class="text-blue-200 text-3xl font-bold tracking-wide">Daftar Event</h1>
-                </div>
-
-                {{-- EVENTS GRID --}}
-                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                     @foreach ($events as $item)
-                <div class="bg-blue-300/60 backdrop-blur-lg backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
-                        
-                {{-- EVENT IMAGE --}}
-                       <div class="bg-blue-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-blue-400/30">
-                            <img src="{{ asset('storage/' . $item->url_gambar) }}"
-                                alt="Gambar {{ $item->nama_event }}"
-                                class="w-full h-full object-cover rounded-xl shadow-lg">
+    <div class="min-h-screen" style="background-image: url('{{ asset('images/2.png') }}');">
+        <div class="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-blue-200/50 backdrop-blur-sm overflow-hidden shadow-sm rounded-2xl">
+                <form action="{{ route('eo.edit.store',$event->id) }}" class="flex justify-center p-14 gap-6" enctype="multipart/form-data" method="POST">
+                    @csrf
+                    <div class="flex flex-col gap-4">
+                        <div class="w-60 h-72 bg-white gambar rounded-xl overflow-hidden flex items-center justify-center"></div>
+                        <input type="file" name="gambar" id="upload" accept="image/*">
+                        <button class="text-[#FAEBD7] font-semibold bg-blue-900 rounded-full px-6 py-3 text-lg w-fit">Edit Event</button>
+                    </div>
+                    <div class="flex flex-col gap-4 w-[32rem]">
+                        <div class="flex justify-between items-center">
+                            <label for="nama" class="font-semibold text-lg">Nama Event</label>
+                            <input type="text" id="nama" name="nama" class="bg-blue-200 border-none outline-white rounded-full w-80">
                         </div>
-                        {{-- EVENT CONTENT --}}
-                        <div class="flex-1 flex flex-col gap-3 w-full">
-                            {{-- EVENT NAME --}}
-                            <h2 class="font-bold text-2xl text-blue-900 truncate">
-                                {{ $item->nama_event }}
-                            </h2>
-
-                            {{-- EVENT DESCRIPTION --}}
-                            <p class="text-gray-700 text-semibold text-lg line-clamp-2">
-                                {{ $item->deskripsi }}
-                            </p>
-
-                            {{-- EVENT DATES --}}
-                            <div class="bg-blue-100/50 px-3 py-2 rounded-lg">
-                                <p class="text-blue-800 text-sm font-medium">
-                                    <i class="far fa-calendar-alt mr-2"></i>
-                                    {{ \Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y') }} -
-                                    {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
-                                </p>
-                            </div>
+                        <div class="flex justify-between items-center">
+                            <label for="mulai" class="font-semibold text-lg">Tanggal Mulai</label>
+                            <input type="date" id="mulai" name="mulai" class="bg-blue-200  border-none outline-white rounded-full w-80">
                         </div>
-
-                        {{-- ACTION BUTTONS --}}
-                        <div class="flex justify-center gap-4 w-full pt-2">
-                            <a href="#" class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-edit text-sm"></i> Update
-                            </a>
-
+                        <div class="flex justify-between items-center">
+                            <label for="selesai" class="font-semibold text-lg">Tanggal Selesai</label>
+                            <input type="date" id="selesai" name="selesai" class="bg-blue-200  border-none outline-white rounded-full w-80">
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <label for="lokasi" class="font-semibold text-lg">Lokasi</label>
+                            <input type="text" id="lokasi" name="lokasi" class="bg-blue-200  border-none outline-white rounded-full w-80">
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <label for="deskripsi" class="font-semibold text-lg">Deskripsi</label>
+                            <textarea id="deskripsi" name="deskripsi" class="bg-blue-200  border-none outline-white rounded-xl p-2"></textarea>
                         </div>
                     </div>
-                    @endforeach
-                </div>
-              
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+
+    <script>
+        const input = document.getElementById('upload');
+        const gambarDiv = document.querySelector('.gambar');
+
+        input.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    gambarDiv.innerHTML = `<img src="${e.target.result}" class="object-cover w-full h-full" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                gambarDiv.innerHTML = 'File bukan gambar';
+            }
+        });
+    </script>
+

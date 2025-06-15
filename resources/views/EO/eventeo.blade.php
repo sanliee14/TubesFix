@@ -50,9 +50,12 @@
 
                         {{-- ACTION BUTTONS --}}
                         <div class="flex justify-center gap-4 w-full pt-2">
-                            <a href="#" class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-edit text-sm"></i> Edit
-                            </a>
+                        <form method="GET" action="{{ route('eo.edit',$item->id) }}">
+                                @csrf
+                                    <button class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                        <i class="fas fa-edit text-sm"></i> Edit
+                                    </button>
+                            </form>
 
                             <form action="/delete/{{$item->id}}" method="POST" class="flex-1">
                                 @csrf

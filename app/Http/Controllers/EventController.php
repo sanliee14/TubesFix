@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Apply;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -126,4 +126,45 @@ class EventController extends Controller
 
         return redirect()->route('user.events')->with('success','Terimakasih sudah mendaftar');
     }
+
+    public function edit(Request $request){
+        $event = Event::findOrFail($request->id);
+        return view('EO.edit',compact('event'));
+    }
+
+    public function editStore(Request $request, $id)
+{
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'mulai' => 'required|date',
+        'selesai' => 'required|date|after_or_equal:mulai',
+        'lokasi' => 'required|string|max:255',
+        'deskripsi' => 'required|string',
+        'gambar' => 'nullable|image|mimes:jpg,jpeg,png,svg'
+    ]);
+
+    $event = Event::findOrFail($id); // ambil event berdasarkan ID
+
+    $path = $event->url_gambar; // default path lama
+    if ($request->hasFile('gambar')) {
+        $path = $request->file('gambar')->store('event', 'public');
+    }
+
+    $status = $request->mulai >= $request->selesai ? 'selesai' : 'belum selesai';
+
+    $event->update([
+        'nama_event' => $request->nama,
+        'deskripsi' => $request->deskripsi,
+        'tanggal_mulai' => $request->mulai,
+        'tanggal_selesai' => $request->selesai,
+        'lokasi' => $request->lokasi,
+        'status' => $status,
+        'url_gambar' => $path,
+        'user_id' => Auth::user()->id,
+    ]);
+
+    return redirect()->route('eo.dashboard')->with('success', 'Event telah diupdate');
+}
+
+
 }
