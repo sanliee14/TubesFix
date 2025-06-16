@@ -32,6 +32,24 @@
                 </div>
             </div>
 
+             
+             <div class="flex justify-center">
+                <form action="<?php echo e(route('search.admin')); ?>" method="GET" class="flex items-center gap-2">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search..."
+                        class="w-full sm:w-80 px-4 py-2 rounded-lg shadow focus:outline-none focus:ring focus:border-blue-500"
+                    >
+                    <button
+                        type="submit"
+                        class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold"
+                    >
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="flex items-center sm:ms-6">
                 <?php if(auth()->guard()->check()): ?>

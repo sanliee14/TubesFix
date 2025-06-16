@@ -102,4 +102,12 @@ public function delete(Request $request){
 
     return redirect(route('admin.detaileo'))->with('success','Event berhasil dihapus');
 }
+
+public function search(Request $request)
+{
+    $search = $request->query('search');
+    $event = Event::where('nama_event', 'like', '%' . $search . '%')->get();
+
+    return view('admin.search', compact('event'));
+}
 }

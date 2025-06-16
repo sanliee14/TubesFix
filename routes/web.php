@@ -75,6 +75,7 @@ Route::post('/panitevent/{id}', [AdminController::class, 'panitevent'])->name('a
 Route::post('/detaileo/{id}', [AdminController::class, 'eventnyaeo'])->name('admin.eventnyaeo');
 Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
 Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
+Route::get('/search/admin', [AdminController::class, 'search'])->name('search.admin');
 });
 
 

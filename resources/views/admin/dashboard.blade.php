@@ -2,6 +2,7 @@
     <body class="font-sans antialiased bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/66.jpg') }}')">
         {{-- alert start --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         @session('success')
         <script>
             Swal.fire({
@@ -74,6 +75,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white p-6 rounded-xl shadow mt-4">
+                    <h2 class="text-xl font-semibold mb-4 text-center">Statistik Umum</h2>
+                    <div id="summaryPieChart" class="w-full h-96"></div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow mt-4 mb-6">
+                    <h2 class="text-xl font-semibold mb-4 text-center">Pertumbuhan User</h2>
+                    <div id="userGrowthChart"></div>
+                </div>
             </section>
 
         <!-- Footer -->
@@ -114,5 +125,70 @@
                 <p>&copy; 2025 - EventConnect All Rights Reserved.</p>
             </div>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const timestamps = {!! json_encode($usersOverTime->pluck('time')->map(fn($t) => \Carbon\Carbon::parse($t)->toDateTimeString())) !!};
+
+                const data = timestamps.map((time, index) => ({
+                    x: time,
+                    y: index + 1
+                }));
+
+                const options = {
+                    chart: {
+                        type: 'line',
+                        height: 350,
+                        zoom: { enabled: true }
+                    },
+                    series: [{
+                        name: 'User',
+                        data: data
+                    }],
+                    xaxis: {
+                        type: 'datetime',
+                        title: { text: 'Waktu Daftar' }
+                    },
+                    yaxis: {
+                        title: { text: 'Jumlah User' },
+                        tickAmount: 5
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'yyyy-MM-dd HH:mm:ss'
+                        }
+                    }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#userGrowthChart"), options);
+                chart.render();
+            });
+        </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const options = {
+            chart: {
+                type: 'pie',
+                height: 350
+            },
+            series: [
+                {{ $totalEvent }},
+                {{ $totalPanitia }},
+                {{ $totalEO }}
+            ],
+            labels: ['Total Event', 'Total Panitia', 'Total EO'],
+            colors: ['#f9a8d4', '#93c5fd', '#86efac'],
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        const chart = new ApexCharts(document.querySelector("#summaryPieChart"), options);
+        chart.render();
+    });
+</script>
+
+
     </body>
 </html>
