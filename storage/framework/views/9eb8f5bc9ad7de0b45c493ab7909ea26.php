@@ -53,8 +53,8 @@
                         </div>
 
                         
-                        <div class="flex justify-center gap-4 w-full pt-2">
                         <form method="GET" action="<?php echo e(route('eo.edit',$item->id)); ?>">
+                        <div class="flex justify-center gap-4 w-full pt-2">
                                 <?php echo csrf_field(); ?>
                                     <button class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
                                         <i class="fas fa-edit text-sm"></i> Edit

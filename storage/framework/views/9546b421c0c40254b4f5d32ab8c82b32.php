@@ -15,10 +15,45 @@
         <?php echo csrf_field(); ?>
     </form>
 
-    <form method="post" action="<?php echo e(route('profile.update')); ?>" class="mt-6 space-y-6">
+    <form method="post" action="<?php echo e(route('profile.update')); ?>" enctype="multipart/form-data" class="mt-6 space-y-6">
         <?php echo csrf_field(); ?>
         <?php echo method_field('patch'); ?>
 
+        
+        <div class="flex flex-col items-center">
+            <label for="foto" class="cursor-pointer group relative w-32 h-32 rounded-full overflow-hidden border-2 border-dashed border-gray-300 hover:border-gray-500">
+                <img id="preview-foto"
+                    src="<?php echo e($user->foto ? asset('storage/' . $user->foto) : asset('images/default-profile.png')); ?>"
+                    alt=""
+                    class="object-cover w-full h-full transition-opacity duration-200 group-hover:opacity-75">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-xs">Ganti Foto</span>
+                </div>
+            </label>
+            <input type="file" name="foto" id="foto" accept="image/*" class="hidden">
+            <?php if (isset($component)) { $__componentOriginalf94ed9c5393ef72725d159fe01139746 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalf94ed9c5393ef72725d159fe01139746 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input-error','data' => ['class' => 'mt-2','messages' => $errors->get('foto')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('input-error'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['class' => 'mt-2','messages' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($errors->get('foto'))]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalf94ed9c5393ef72725d159fe01139746)): ?>
+<?php $attributes = $__attributesOriginalf94ed9c5393ef72725d159fe01139746; ?>
+<?php unset($__attributesOriginalf94ed9c5393ef72725d159fe01139746); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalf94ed9c5393ef72725d159fe01139746)): ?>
+<?php $component = $__componentOriginalf94ed9c5393ef72725d159fe01139746; ?>
+<?php unset($__componentOriginalf94ed9c5393ef72725d159fe01139746); ?>
+<?php endif; ?>
+        </div>
+
+        
         <div>
             <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $attributes; } ?>
@@ -82,6 +117,7 @@
 <?php endif; ?>
         </div>
 
+        
         <div>
             <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $attributes; } ?>
@@ -149,7 +185,6 @@
                     <p class="text-sm mt-2 text-gray-800">
                         <?php echo e(__('Your email address is unverified.')); ?>
 
-
                         <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             <?php echo e(__('Click here to re-send the verification email.')); ?>
 
@@ -166,7 +201,7 @@
             <?php endif; ?>
         </div>
 
-
+        
         <div class="flex items-center gap-4">
             <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald411d1792bd6cc877d687758b753742c = $attributes; } ?>
@@ -199,5 +234,22 @@
             <?php endif; ?>
         </div>
     </form>
+
+    
+    <script>
+        document.getElementById('foto').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('preview-foto');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    preview.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
 </section>
 <?php /**PATH C:\Users\nitro\OneDrive\Dokumen\File Coding\LARAVEL\TubesFix\resources\views/profile/partials/update-profile-information-form.blade.php ENDPATH**/ ?>

@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    @if(request()->is('admin*')) 
+                    @if(request()->is('admin*'))
                         <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
@@ -26,10 +26,29 @@
                         <x-nav-link :href="route('user.status')" :active="request()->routeIs('user.status')">
                             {{ __('Status') }}
                         </x-nav-link>
+
+
                     @endif
                 </div>
             </div>
 
+            {{-- Search Bar --}}
+            <div class="flex justify-center">
+                <form action="{{ route('search.user') }}" method="GET" class="flex items-center gap-2">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search..."
+                        class="w-full sm:w-80 px-4 py-2 rounded-lg shadow focus:outline-none focus:ring focus:border-blue-500"
+                    >
+                    <button
+                        type="submit"
+                        class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold"
+                    >
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 @auth

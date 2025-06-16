@@ -52,6 +52,7 @@ Route::post('/daftar/panitia/{id}', [EventController::class, 'daftarPanitia'])->
 Route::post('/tolak/{id_apply}', [StatusController::class, 'tolak'])->name('tolak');
 Route::post('/terima/{id_apply}', [StatusController::class, 'terima'])->name('terima');
 Route::get('/edit/event/{id}', [EventController::class, 'edit'])->name('eo.edit');
+Route::get('/search', [EventController::class, 'search'])->name('search.user');
 Route::post('/edit/event/{id}', [EventController::class, 'editStore'])->name('eo.edit.store');
 // Route::get('/detailevent', [AdminController::class, 'detailevent'])->name('admin.detailevent');
 // Route::get('/panitevent', [AdminController::class, 'panitevent'])->name('admin.panitevent');

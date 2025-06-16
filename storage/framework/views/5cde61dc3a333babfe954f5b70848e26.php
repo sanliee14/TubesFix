@@ -15,7 +15,7 @@
                 <!-- Profil dan Gambar -->
                 <div class="flex flex-col items-center">
                     <div class="w-60 h-72 bg-white rounded-xl overflow-hidden mb-4 flex justify-center items-center">
-                        <img src="" alt="Foto Profil" class="object-cover w-full h-full">
+                        <img src="<?php echo e(asset('storage/'. $item->user->foto)); ?>" alt="Foto Profil" class="object-cover w-full h-full">
                     </div>
                     <h2 class="text-blue-800 text-xl font-bold text-center">Profil</h2>
                 </div>

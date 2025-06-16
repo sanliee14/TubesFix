@@ -13,16 +13,33 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
+        {{-- Foto Profil --}}
+        <div class="flex flex-col items-center">
+            <label for="foto" class="cursor-pointer group relative w-32 h-32 rounded-full overflow-hidden border-2 border-dashed border-gray-300 hover:border-gray-500">
+                <img id="preview-foto"
+                    src="{{ $user->foto ? asset('storage/' . $user->foto) : asset('images/default-profile.png') }}"
+                    alt=""
+                    class="object-cover w-full h-full transition-opacity duration-200 group-hover:opacity-75">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <span class="text-white text-xs">Ganti Foto</span>
+                </div>
+            </label>
+            <input type="file" name="foto" id="foto" accept="image/*" class="hidden">
+            <x-input-error class="mt-2" :messages="$errors->get('foto')" />
+        </div>
+
+        {{-- Nama --}}
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        {{-- Email --}}
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
@@ -32,7 +49,6 @@
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Your email address is unverified.') }}
-
                         <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
@@ -47,7 +63,7 @@
             @endif
         </div>
 
-
+        {{-- Tombol --}}
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -62,4 +78,21 @@
             @endif
         </div>
     </form>
+
+    {{-- JS untuk preview --}}
+    <script>
+        document.getElementById('foto').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('preview-foto');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    preview.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
 </section>

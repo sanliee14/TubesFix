@@ -168,5 +168,13 @@ class EventController extends Controller
     return redirect()->route('eo.dashboard')->with('success', 'Event telah diupdate');
 }
 
+public function search(Request $request)
+{
+    $search = $request->query('search'); 
+    $event = Event::where('nama_event', 'like', '%' . $search . '%')->get();
+
+    return view('user.search', compact('event'));
+}
+
 
 }

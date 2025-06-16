@@ -31,7 +31,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <?php if(request()->is('admin*')): ?> 
+                    <?php if(request()->is('admin*')): ?>
                         <?php if (isset($component)) { $__componentOriginalc295f12dca9d42f28a259237a5724830 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalc295f12dca9d42f28a259237a5724830 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.nav-link','data' => ['href' => route('admin.dashboard'),'active' => request()->routeIs('admin.dashboard')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -121,10 +121,29 @@
 <?php $component = $__componentOriginalc295f12dca9d42f28a259237a5724830; ?>
 <?php unset($__componentOriginalc295f12dca9d42f28a259237a5724830); ?>
 <?php endif; ?>
+
+
                     <?php endif; ?>
                 </div>
             </div>
 
+            
+            <div class="flex justify-center">
+                <form action="<?php echo e(route('search.user')); ?>" method="GET" class="flex items-center gap-2">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search..."
+                        class="w-full sm:w-80 px-4 py-2 rounded-lg shadow focus:outline-none focus:ring focus:border-blue-500"
+                    >
+                    <button
+                        type="submit"
+                        class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold"
+                    >
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <?php if(auth()->guard()->check()): ?>

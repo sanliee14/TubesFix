@@ -23,6 +23,7 @@
               @if (!request()->is('login') && !request()->is('register'))
             @include('layouts.navigation')
         @endif
+        
 
             <!-- Page Heading -->
             @isset($header)
