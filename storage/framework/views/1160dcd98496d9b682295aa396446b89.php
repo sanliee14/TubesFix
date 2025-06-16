@@ -40,49 +40,49 @@ unset($__sessionArgs); ?>
                             Daftar Event
                         </h1>
                     </div>
+                
+                 <div class="grid text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                     <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="bg-purple-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
 
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                        <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="bg-gradient-to-br from-purple-500/30 to-violet-600/40 backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+                
+                       <div class="bg-purple-300/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
+                            <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>"
+                                alt="Gambar <?php echo e($item->nama_event); ?>"
+                                class="w-full h-full object-cover rounded-xl shadow-lg">
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col gap-3 w-full">
+                            
+                            <h2 class="font-bold text-2xl text-purple-900 truncate">
+                                <?php echo e($item->nama_event); ?>
 
-                                
-                                <div class="bg-pink-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
-                                    <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>"
-                                         alt="Gambar <?php echo e($item->nama_event); ?>"
-                                         class="w-full h-full object-cover rounded-xl shadow-lg">
-                                </div>
+                            </h2>
 
-                                
-                                <div class="flex flex-col items-center gap-4 w-full">
-                                    
-                                    <h2 class="text-2xl font-bold text-[#FAEBD7] text-center">
-                                        <?php echo e($item->nama_event); ?>
+                            
+                            <p class="text-white text-semibold text-lg line-clamp-2">
+                                <?php echo e($item->deskripsi); ?>
 
-                                    </h2>
+                            </p>
 
-                                    
-                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
-                                        <?php echo e($item->deskripsi); ?>
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                            <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <?php echo e($item->lokasi); ?>
 
-                                    </p>
+                            </p>
+                            </div>
 
-                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
-                                        <i class="fa-solid fa-map-location-dot"></i>
-                                        <?php echo e($item->lokasi); ?>
+                            
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-sm font-medium">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y')); ?> -
+                                    <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y')); ?>
 
-                                    </p>
-
-                                    
-                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
-                                        <p class="text-purple-100 text-sm">
-                                            <i class="fas fa-calendar-alt mr-2"></i>
-                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y')); ?> -
-                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y')); ?>
-
-                                        </p>
-                                    </div>
-                                </div>
+                                </p>
+                            </div>
+                        </div>
 
                                 
                                 <a href="/daftar-panitia/<?php echo e(strtolower($item->nama_event)); ?>"

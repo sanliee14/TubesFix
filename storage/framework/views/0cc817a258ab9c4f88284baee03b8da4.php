@@ -31,7 +31,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <?php if(request()->is('admin*')): ?> 
+                    <?php if(request()->is('admin*')): ?>
                         <?php if (isset($component)) { $__componentOriginalc295f12dca9d42f28a259237a5724830 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalc295f12dca9d42f28a259237a5724830 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.nav-link','data' => ['href' => route('admin.dashboard'),'active' => request()->routeIs('admin.dashboard')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -121,10 +121,29 @@
 <?php $component = $__componentOriginalc295f12dca9d42f28a259237a5724830; ?>
 <?php unset($__componentOriginalc295f12dca9d42f28a259237a5724830); ?>
 <?php endif; ?>
+
+
                     <?php endif; ?>
                 </div>
             </div>
 
+            
+            <div class="flex-1 mt-2 max-w-md mx-4"> 
+                <form action="<?php echo e(route('search.user')); ?>" method="GET" class="relative">
+                    <div class="flex items-center">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Search"
+                            class="w-full px-4 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-[#e9c3ff] bg-[#f3e0ff] text-purple-900 placeholder-purple-400">
+                        <button
+                            type="submit"
+                            class="absolute right-0 bg-[#b56ef3] hover:bg-[#9b51e0] text-white px-4 py-1 rounded-full font-medium mr-1 transition-colors duration-200">
+                            <i class="fas fa-search text-sm"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <?php if(auth()->guard()->check()): ?>
@@ -139,7 +158,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['align' => 'right','width' => '48']); ?>
                          <?php $__env->slot('trigger', null, []); ?> 
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-purple-900 bg-purple-100 hover:bg-purple-200 focus:outline-none transition ease-in-out duration-150">
                                 <div><?php echo e(Auth::user()->name); ?></div>
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

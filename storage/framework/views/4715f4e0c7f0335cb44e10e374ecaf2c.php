@@ -1,6 +1,8 @@
 
     <body class="font-sans antialiased bg-cover bg-center bg-no-repeat" style="background-image: url('<?php echo e(asset('images/66.jpg')); ?>')">
         
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <?php $__sessionArgs = ['success'];
 if (session()->has($__sessionArgs[0])) :
 if (isset($value)) { $__sessionPrevious[] = $value; }
@@ -59,17 +61,17 @@ unset($__sessionArgs); ?>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div class="bg-pink-100 opacity-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total Event</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl font-bold text-gray-700"><?php echo e($totalEvent); ?></p>
                         <div class="mt-10 flex justify-center">
                             <a href="<?php echo e(route('admin.detailevent')); ?>" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total EO</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl font-bold text-gray-700"><?php echo e($totalEO); ?></p>
                         <div class="mt-10 flex justify-center">
                             <a href="<?php echo e(route('admin.detaileo')); ?>" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail
@@ -79,7 +81,7 @@ unset($__sessionArgs); ?>
 
                     <div class="bg-pink-100 p-6 rounded-xl shadow-md space-y-4">
                         <h3 class="text-3xl font-bold text-blue-800">Total Panitia</h3>
-                        <p class="text-xl text-gray-700">jumlah</p>
+                        <p class="text-xl font-bold text-gray-700"><?php echo e($totalPanitia); ?></p>
                         <div class="mt-10 flex justify-center">
                             <a href="<?php echo e(route('admin.detailvol')); ?>" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
                                 Detail
@@ -88,6 +90,16 @@ unset($__sessionArgs); ?>
                     </div>
                 </div>
             </section>
+
+            <div class="bg-pink-200/70 backdrop-blur-md py-12 px-6 mt-10 rounded-xl shadow-lg max-w-7xl mx-auto">
+                    <h2 class="text-xl font-semibold mb-4 text-center">Statistik Umum</h2>
+                    <div id="summaryPieChart" class="w-full h-96"></div>
+                </div>
+
+                <div class="bg-pink-200/70 backdrop-blur-md py-12 px-6 mt-10 rounded-xl shadow-lg max-w-7xl mx-auto">
+                    <h2 class="text-xl font-semibold mb-4 text-center">Pertumbuhan User</h2>
+                    <div id="userGrowthChart"></div>
+                </div>
 
         <!-- Footer -->
         <footer class="mt-10 bg-pink-200/60 backdrop-blur-sm">
@@ -118,6 +130,7 @@ unset($__sessionArgs); ?>
                     </div>
                 </div>
             </div>
+
             <div class="border-t border-[#2d0c57] text-center py-6 text-[#2B0052] text-sm">
                 <div class="flex justify-center space-x-10 mb-2">
                     <a href="#" class="underline hover:text-[#5e17eb]">Legal Terms</a>
@@ -127,5 +140,72 @@ unset($__sessionArgs); ?>
                 <p>&copy; 2025 - EventConnect All Rights Reserved.</p>
             </div>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const timestamps = <?php echo json_encode($usersOverTime->pluck('time')->map(fn($t) => \Carbon\Carbon::parse($t)->toDateTimeString())); ?>;
+
+                const data = timestamps.map((time, index) => ({
+                    x: time,
+                    y: index + 1
+                }));
+
+                const options = {
+                    chart: {
+                        type: 'line',
+                        height: 350,
+                        zoom: { enabled: true }
+                    },
+                    series: [{
+                        name: 'User',
+                        data: data
+                    }],
+                    xaxis: {
+                        type: 'datetime',
+                        title: { text: 'Waktu Daftar' }
+                    },
+                    yaxis: {
+                        title: { text: 'Jumlah User' },
+                        tickAmount: 5
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'yyyy-MM-dd HH:mm:ss'
+                        }
+                    }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#userGrowthChart"), options);
+                chart.render();
+            });
+        </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const options = {
+            chart: {
+                type: 'pie',
+                height: 350
+            },
+            series: [
+                <?php echo e($totalEvent); ?>,
+                <?php echo e($totalPanitia); ?>,
+                <?php echo e($totalEO); ?>
+
+            ],
+            labels: ['Total Event', 'Total Panitia', 'Total EO'],
+            colors: ['#f9a8d4', '#93c5fd', '#86efac'],
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        const chart = new ApexCharts(document.querySelector("#summaryPieChart"), options);
+        chart.render();
+    });
+</script>
+
+
     </body>
-</html><?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

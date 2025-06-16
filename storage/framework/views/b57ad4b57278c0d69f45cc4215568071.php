@@ -23,6 +23,7 @@
               <?php if(!request()->is('login') && !request()->is('register')): ?>
             <?php echo $__env->make('layouts.navigation', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
         <?php endif; ?>
+        
 
             <!-- Page Heading -->
             <?php if(isset($header)): ?>

@@ -49,26 +49,35 @@ unset($__sessionArgs); ?>
                             <th class="px-6 py-4">Lebih Lanjut</th>
                         </tr>
                     </thead>
+                    <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tbody class="divide-y divide-pink-200">
                         <tr class="hover:bg-pink-50/70">
                             <td class="px-6 py-4">
-                                nama
-                            </td>
-                            <td class="px-6 py-4">
+                                <?php echo e($item->nama_event); ?>
 
                             </td>
                             <td class="px-6 py-4">
+                                <?php echo e($item->created_at); ?>
 
                             </td>
                             <td class="px-6 py-4">
-                              <a href="<?php echo e(route('admin.panitevent')); ?>" class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
-                                Detail
-                            </a>
+                                <?php echo e($panitiaCounts[$item->id] ?? 0); ?>
+
+                            </td>
+                            <td class="px-6 py-4">
+                                <form method="POST" action="<?php echo e(route('admin.panitevent',$item->id)); ?>">
+                                    <?php echo csrf_field(); ?>
+                                    <button class="bg-pink-400 hover:bg-pink-200 text-[#2B0052] font-semibold px-6 py-3 rounded-full">
+                                        Detail
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </table>
             </div>
         </div>
     </body>
-</html><?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/detailevent.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/detailevent.blade.php ENDPATH**/ ?>

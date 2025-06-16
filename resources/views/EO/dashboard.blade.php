@@ -196,7 +196,7 @@
              class="flex items-center justify-center bg-blue-200 text-[#2d0c57] font-bold rounded-full w-36 h-12 shadow-lg hover:bg-blue-900 transition-all duration-300">
               <i class="fas fa-plus mr-2"></i> Create Event
       </button>
-</div>
+        </div>
         </div>
     </body>
 </html>

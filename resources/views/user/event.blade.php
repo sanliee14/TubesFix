@@ -24,45 +24,45 @@
                             Daftar Event
                         </h1>
                     </div>
+                {{-- EVENTS GRID --}}
+                 <div class="grid text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                     @foreach ($events as $item)
+                <div class="bg-purple-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
 
-                    {{-- GRID EVENT --}}
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-                        @foreach ($events as $item)
-                            <div class="bg-gradient-to-br from-purple-500/30 to-violet-600/40 backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+                {{-- EVENT IMAGE --}}
+                       <div class="bg-purple-300/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
+                            <img src="{{ asset('storage/' . $item->url_gambar) }}"
+                                alt="Gambar {{ $item->nama_event }}"
+                                class="w-full h-full object-cover rounded-xl shadow-lg">
+                        </div>
+                        {{-- EVENT CONTENT --}}
+                        <div class="flex-1 flex flex-col gap-3 w-full">
+                            {{-- EVENT NAME --}}
+                            <h2 class="font-bold text-2xl text-purple-900 truncate">
+                                {{ $item->nama_event }}
+                            </h2>
 
-                                {{-- FOTO EVENT --}}
-                                <div class="bg-pink-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
-                                    <img src="{{ asset('storage/' . $item->url_gambar) }}"
-                                         alt="Gambar {{ $item->nama_event }}"
-                                         class="w-full h-full object-cover rounded-xl shadow-lg">
-                                </div>
+                            {{-- EVENT DESCRIPTION --}}
+                            <p class="text-white text-semibold text-lg line-clamp-2">
+                                {{ $item->deskripsi }}
+                            </p>
 
-                                {{-- KONTEN TEKS --}}
-                                <div class="flex flex-col items-center gap-4 w-full">
-                                    {{-- NAMA EVENT --}}
-                                    <h2 class="text-2xl font-bold text-[#FAEBD7] text-center">
-                                        {{ $item->nama_event }}
-                                    </h2>
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                            <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                {{ $item->lokasi}}
+                            </p>
+                            </div>
 
-                                    {{-- DESKRIPSI --}}
-                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
-                                        {{ $item->deskripsi }}
-                                    </p>
-
-                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
-                                        <i class="fa-solid fa-map-location-dot"></i>
-                                        {{ $item->lokasi }}
-                                    </p>
-
-                                    {{-- TANGGAL --}}
-                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
-                                        <p class="text-purple-100 text-sm">
-                                            <i class="fas fa-calendar-alt mr-2"></i>
-                                            {{ \Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y') }} -
-                                            {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
-                                        </p>
-                                    </div>
-                                </div>
+                            {{-- EVENT DATES --}}
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-sm font-medium">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    {{ \Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y') }} -
+                                    {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
+                                </p>
+                            </div>
+                        </div>
 
                                 {{-- TOMBOL DAFTAR --}}
                                 <a href="/daftar-panitia/{{ strtolower($item->nama_event) }}"

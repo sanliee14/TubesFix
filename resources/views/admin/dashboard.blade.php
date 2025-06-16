@@ -75,17 +75,17 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="bg-white p-6 rounded-xl shadow mt-4">
+            <div class="bg-pink-200/70 backdrop-blur-md py-12 px-6 mt-10 rounded-xl shadow-lg max-w-7xl mx-auto">
                     <h2 class="text-xl font-semibold mb-4 text-center">Statistik Umum</h2>
                     <div id="summaryPieChart" class="w-full h-96"></div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow mt-4 mb-6">
+                <div class="bg-pink-200/70 backdrop-blur-md py-12 px-6 mt-10 rounded-xl shadow-lg max-w-7xl mx-auto">
                     <h2 class="text-xl font-semibold mb-4 text-center">Pertumbuhan User</h2>
                     <div id="userGrowthChart"></div>
                 </div>
-            </section>
 
         <!-- Footer -->
         <footer class="mt-10 bg-pink-200/60 backdrop-blur-sm">
@@ -116,6 +116,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="border-t border-[#2d0c57] text-center py-6 text-[#2B0052] text-sm">
                 <div class="flex justify-center space-x-10 mb-2">
                     <a href="#" class="underline hover:text-[#5e17eb]">Legal Terms</a>

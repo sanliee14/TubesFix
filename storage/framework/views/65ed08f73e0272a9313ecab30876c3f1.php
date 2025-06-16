@@ -13,8 +13,8 @@
                 
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                      <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="bg-blue-300/60 backdrop-blur-lg backdrop-blur-md p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
-                        
+                <div class="bg-blue-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+
                 
                        <div class="bg-blue-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-blue-400/30">
                             <img src="<?php echo e(asset('storage/' . $item->url_gambar)); ?>"
@@ -30,10 +30,18 @@
                             </h2>
 
                             
-                            <p class="text-gray-700 text-semibold text-lg line-clamp-2">
+                            <p class="text-white text-semibold text-lg line-clamp-2">
                                 <?php echo e($item->deskripsi); ?>
 
                             </p>
+
+                            <div class="bg-blue-100/50 px-3 py-2 rounded-lg">
+                            <p class="text-blue-800 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <?php echo e($item->lokasi); ?>
+
+                            </p>
+                            </div>
 
                             
                             <div class="bg-blue-100/50 px-3 py-2 rounded-lg">
@@ -47,28 +55,38 @@
                         </div>
 
                         
-                        <div class="flex justify-center gap-4 w-full pt-2">
-                            <a href="#" class="flex-1 mb-6 px-2 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
-                                <i class="fas fa-edit text-sm"></i> Edit
-                            </a>
+                        <div class="w-full">
+                            <div class="flex justify-center gap-4 w-full pt-2">
+                                <form method="GET" action="<?php echo e(route('eo.edit',$item->id)); ?>" class="flex-1">
+                                    <?php echo csrf_field(); ?>
+                                    <button class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                        <i class="fas fa-edit text-sm"></i> Edit
+                                    </button>
+                                </form>
 
-                            <form action="/delete/<?php echo e($item->id); ?>" method="POST" class="flex-1">
+                                <form action="/delete/<?php echo e($item->id); ?>" method="POST" class="flex-1">
+                                    <?php echo csrf_field(); ?>
+                                    <button type="submit" class="w-full px-3 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                        <i class="fas fa-trash text-sm"></i> Hapus
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <form method="POST" action="#" class="w-full mt-2">
                                 <?php echo csrf_field(); ?>
-                                
-                                <button type="submit" class="w-full px-4 py-4 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
-                                    <i class="fas fa-trash text-sm"></i> Hapus
+                                <button class="w-full px-3 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                    <i class="fas fa-check text-sm"></i> Selesai
                                 </button>
                             </form>
                         </div>
                     </div>
+                    
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    
                 </div>
 
                 
-                <!-- <div class="fixed bottom-8 right-8 z-50">
-                    <a href="<?php echo e(route('user.create_event')); ?>" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-full w-44 h-12 shadow-xl transition-all duration-300 hover:shadow-2xl gap-2 px-6"> -->
-
-               <div class="fixed bottom-8 right-8 z-50">
+                <div class="fixed bottom-8 right-8 z-50">
                     <a href="<?php echo e(route('user.create_event')); ?>" class="flex items-center justify-center bg-blue-900 hover:bg-blue-200 text-[#FAEBD7] font-bold rounded-full w-40 h-12 shadow-xl transition-all duration-300 hover:shadow-2xl gap-2 px-4">
                         <i class="fas fa-plus"></i>
                         Buat Event
@@ -77,5 +95,4 @@
             </div>
         </div>
     </div>
-</div>
-<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/EO/eventeo.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/EO/eventeo.blade.php ENDPATH**/ ?>

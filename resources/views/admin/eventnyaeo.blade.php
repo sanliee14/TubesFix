@@ -20,11 +20,10 @@
             @endsession
 
                 {{-- EVENTS GRID --}}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                    <!-- Event Card Template - Repeat this block for each event -->
-                    @foreach ($event as $item)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
 
-                    <div class="bg-pink-300/50 backdrop-blur-md p-6 rounded-3xl flex flex-col items-center gap-5 hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02] border border-pink-400/30">
+                    @foreach ($event as $item)
+                <div class="bg-pink-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
 
                         {{-- EVENT IMAGE --}}
                          <div class="bg-pink-200/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-pink-400/30">
@@ -41,14 +40,15 @@
                             </h2>
 
                             {{-- EVENT DESCRIPTION --}}
-                            <p class="text-pink-800 font-medium text-sm line-clamp-2">
+                            <p class="text-pink-200 font-xl text-sm line-clamp-2">
                                 {{ $item->deskripsi }}
                             </p>
-
+                            <div class="bg-pink-200/50 px-3 py-2 rounded-lg">
                             <p class="text-pink-800 font-medium text-sm line-clamp-2">
                                 <i class="fa-solid fa-map-location-dot mr-2"></i>
                                 {{ $item->lokasi }}
                             </p>
+                            </div>
 
                             {{-- EVENT DATES --}}
                             <div class="bg-pink-200/50 px-3 py-2 rounded-lg">
@@ -71,7 +71,7 @@
                     </div>
                     @endforeach
                 </div>
-
+                </div>
             </div>
         </div>
     </div>
