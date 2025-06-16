@@ -8,12 +8,6 @@
 <?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Profile')); ?>
-
-        </h2>
-     <?php $__env->endSlot(); ?>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php $__sessionArgs = ['success'];

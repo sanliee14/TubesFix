@@ -145,7 +145,7 @@ class EventController extends Controller
         'gambar' => 'nullable|image|mimes:jpg,jpeg,png,svg'
     ]);
 
-    $event = Event::findOrFail($id); // ambil event berdasarkan ID
+    $event = Event::findOrFail($id);
 
     $path = $event->url_gambar; // default path lama
     if ($request->hasFile('gambar')) {
@@ -170,11 +170,20 @@ class EventController extends Controller
 
 public function search(Request $request)
 {
-    $search = $request->query('search'); 
+    $search = $request->query('search');
     $event = Event::where('nama_event', 'like', '%' . $search . '%')->get();
 
     return view('user.search', compact('event'));
 }
 
+public function selesai (Request $request){
+    $event = Event::findOrFail($request->id);
+
+    $event->update([
+        'status'=> 'selesai'
+    ]);
+
+    return redirect(route('eo.eventeo'))->with('success','Event telah selesai');
+}
 
 }

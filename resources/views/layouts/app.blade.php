@@ -19,11 +19,19 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/wall.jpg') }}')">
-              @if (!request()->is('login') && !request()->is('register'))
-            @include('layouts.navigation')
+
+        @if (!request()->is('login') && !request()->is('register'))
+            @if(Auth::user()->role == 'user')
+            <div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/wall.jpg') }}')">
+                @include('layouts.navigation')
+            @elseif(Auth::user()->role == 'eo')
+            <div class="min-h-screen bg-center" style="background-image: url('{{ asset('images/2.png') }}')">
+                @include('eo.navbar')
+            @elseif(Auth::user()->role == 'admin')
+            <div class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('images/66.jpg') }}');">
+                @include('admin.nav')
+            @endif
         @endif
-        
 
             <!-- Page Heading -->
             @isset($header)

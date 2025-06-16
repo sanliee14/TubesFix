@@ -62,13 +62,20 @@
                                     {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
                                 </p>
                             </div>
-                        </div>
 
-                                {{-- TOMBOL DAFTAR --}}
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                    Status : {{ $item->status}}
+                                </p>
+                                </div>
+                        </div>
+                                @if($item->status == 'belum selesai')
+                                     {{-- TOMBOL DAFTAR --}}
                                 <a href="/daftar-panitia/{{ strtolower($item->nama_event) }}"
-                                   class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
-                                    Daftar Sekarang
-                                </a>
+                                    class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
+                                     Daftar Sekarang
+                                 </a>
+                                @endif
                             </div>
                         @endforeach
                     </div>

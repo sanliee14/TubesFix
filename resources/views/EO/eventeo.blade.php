@@ -1,9 +1,20 @@
 @include('EO.navbar')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/2.png') }}');">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-4">
         <div class="overflow-hidden rounded-2xl">
             <div class="p-8 flex flex-col gap-12 items-center text-center">
+                {{-- alert --}}
+                @session('success')
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "{{ session('success') }}",
+                icon: "success"
+              });
+            </script>
+        @endsession
 
                 {{-- PAGE TITLE --}}
                 <div class="shadow-md">
@@ -48,9 +59,17 @@
                                     {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
                                 </p>
                             </div>
+
+                            <div class="bg-blue-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-blue-800 text-semibold text-lg line-clamp-2">
+                                    Status :
+                                    {{ $item->status}}
+                                </p>
+                            </div>
                         </div>
 
                         {{-- ACTION BUTTONS --}}
+                        @if ($item->status == 'belum selesai')
                         <div class="w-full">
                             <div class="flex justify-center gap-4 w-full pt-2">
                                 <form method="GET" action="{{ route('eo.edit',$item->id) }}" class="flex-1">
@@ -67,18 +86,19 @@
                                     </button>
                                 </form>
                             </div>
-                            
-                            <form method="POST" action="#" class="w-full mt-2">
+
+                            <form method="POST" action="{{ route('selesai',$item->id) }}" class="w-full mt-2">
                                 @csrf
                                 <button class="w-full px-3 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fas fa-check text-sm"></i> Selesai
                                 </button>
                             </form>
                         </div>
+                        @endif
                     </div>
-                    
+
                     @endforeach
-                    
+
                 </div>
 
                 {{-- CREATE BUTTON --}}

@@ -43,7 +43,7 @@
         {{-- alert end --}}
 
 
-        <!-- <div class="min-h-fit bg-center" style="background-image: url('{{ asset('images/11.png') }}')"> -->
+        <!-- <div class="min-h-fit bg-center" style="background-image: url('')"> -->
              @include('EO.navbar')
   <body class="bg-cover bg-center min-h-screen" style="background-image: url('{{ asset('images/2.png') }}');">
     <div class="flex justify-center items-center py-6 px-2 mb-0 min-h-[65vh]">

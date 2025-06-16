@@ -128,20 +128,20 @@
             </div>
 
             
-            <div class="flex justify-center">
-                <form action="<?php echo e(route('search.user')); ?>" method="GET" class="flex items-center gap-2">
-                    <input
-                        type="text"
-                        name="search"
-                        placeholder="Search..."
-                        class="w-full sm:w-80 px-4 py-2 rounded-lg shadow focus:outline-none focus:ring focus:border-blue-500"
-                    >
-                    <button
-                        type="submit"
-                        class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg font-semibold"
-                    >
-                        <i class="fas fa-search"></i>
-                    </button>
+            <div class="flex-1 mt-2 max-w-md mx-4"> 
+                <form action="<?php echo e(route('search.user')); ?>" method="GET" class="relative">
+                    <div class="flex items-center">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Search"
+                            class="w-full px-4 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-[#e9c3ff] bg-[#f3e0ff] text-purple-900 placeholder-purple-400">
+                        <button
+                            type="submit"
+                            class="absolute right-0 bg-[#b56ef3] hover:bg-[#9b51e0] text-white px-4 py-1 rounded-full font-medium mr-1 transition-colors duration-200">
+                            <i class="fas fa-search text-sm"></i>
+                        </button>
+                    </div>
                 </form>
             </div>
             <!-- Settings Dropdown -->
@@ -158,7 +158,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['align' => 'right','width' => '48']); ?>
                          <?php $__env->slot('trigger', null, []); ?> 
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-purple-900 bg-purple-100 hover:bg-purple-200 focus:outline-none transition ease-in-out duration-150">
                                 <div><?php echo e(Auth::user()->name); ?></div>
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

@@ -57,7 +57,7 @@ unset($__sessionArgs); ?>
         
 
 
-        <!-- <div class="min-h-fit bg-center" style="background-image: url('<?php echo e(asset('images/11.png')); ?>')"> -->
+        <!-- <div class="min-h-fit bg-center" style="background-image: url('')"> -->
              <?php echo $__env->make('EO.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <body class="bg-cover bg-center min-h-screen" style="background-image: url('<?php echo e(asset('images/2.png')); ?>');">
     <div class="flex justify-center items-center py-6 px-2 mb-0 min-h-[65vh]">
@@ -210,7 +210,7 @@ unset($__sessionArgs); ?>
              class="flex items-center justify-center bg-blue-200 text-[#2d0c57] font-bold rounded-full w-36 h-12 shadow-lg hover:bg-blue-900 transition-all duration-300">
               <i class="fas fa-plus mr-2"></i> Create Event
       </button>
-</div>
+        </div>
         </div>
     </body>
 </html>
