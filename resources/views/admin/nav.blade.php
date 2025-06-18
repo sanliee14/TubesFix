@@ -16,16 +16,15 @@
             {{-- Search Bar Positioned Lower --}}
             <div class="flex-1 max-w-xl mx-4 mt-1"> 
                 <form action="{{ route('search.admin') }}" method="GET" class="relative">
-                    <div class="flex items-center">
+                    <div class="flex mt-2 items-center">
                         <input
                             type="text"
                             name="search"
                             placeholder="Search"
-                            class="w-full px-4 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-[#FFD1DC] bg-pink-100 text-pink-900 placeholder-pink-400"
-                        >
+                            class="w-full px-4 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-[#FFD1DC] bg-pink-100 text-pink-900 placeholder-pink-400">
                         <button
                             type="submit"
-                            class="absolute right-0 bg-[#FF1493] hover:bg-[#C71585] text-white px-4 py-2 rounded-full font-semibold mr-1 transition-colors duration-200">
+                            class="absolute right-0 bg-[#FF1493] hover:bg-[#C71585] text-white px-3 py-2 rounded-full font-semibold mr-1 transition-colors duration-200">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>

@@ -19,11 +19,19 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/wall.jpg')); ?>')">
-              <?php if(!request()->is('login') && !request()->is('register')): ?>
-            <?php echo $__env->make('layouts.navigation', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+        <?php if(!request()->is('login') && !request()->is('register')): ?>
+            <?php if(Auth::user()->role == 'user'): ?>
+            <div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/wall.jpg')); ?>')">
+                <?php echo $__env->make('layouts.navigation', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <?php elseif(Auth::user()->role == 'eo'): ?>
+            <div class="min-h-screen bg-center" style="background-image: url('<?php echo e(asset('images/2.png')); ?>')">
+                <?php echo $__env->make('eo.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <?php elseif(Auth::user()->role == 'admin'): ?>
+            <div class="bg-cover bg-center min-h-screen" style="background-image: url('<?php echo e(asset('images/66.jpg')); ?>');">
+                <?php echo $__env->make('admin.nav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+            <?php endif; ?>
         <?php endif; ?>
-        
 
             <!-- Page Heading -->
             <?php if(isset($header)): ?>
