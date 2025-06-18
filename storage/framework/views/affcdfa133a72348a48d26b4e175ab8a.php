@@ -43,7 +43,7 @@ unset($__sessionArgs); ?>
                 
                  <div class="grid text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                      <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="bg-purple-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+                <div class="bg-purple-500/30 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
 
                 
                        <div class="bg-purple-300/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
@@ -54,7 +54,7 @@ unset($__sessionArgs); ?>
                         
                         <div class="flex-1 flex flex-col gap-3 w-full">
                             
-                            <h2 class="font-bold text-2xl text-purple-900 truncate">
+                            <h2 class="font-bold text-2xl text-[#FAEBD7] truncate">
                                 <?php echo e($item->nama_event); ?>
 
                             </h2>

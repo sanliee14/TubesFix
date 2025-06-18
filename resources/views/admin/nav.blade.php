@@ -6,7 +6,7 @@
             <div class="flex items-center space-x-4">
                 <!-- Logo with Text -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}" class="flex items-center">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                         <span class="ml-3 text-2xl font-bold text-[#FFD1DC] tracking-tight font-['figtree']">EventConnect</span>
                     </a>
@@ -14,7 +14,7 @@
             </div>
 
             <!-- {{-- Search Bar Positioned Lower --}}
-            <div class="flex-1 max-w-xl mx-4 mt-1"> 
+            <div class="flex-1 max-w-xl mx-4 mt-1">
                 <form action="{{ route('search.admin') }}" method="GET" class="relative">
                     <div class="flex mt-2 items-center">
                         <input

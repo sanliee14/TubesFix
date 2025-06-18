@@ -17,14 +17,9 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->role !== 'user') {
-            if (Auth::user()->role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } elseif (Auth::user()->role === 'eo') {
-                return redirect()->route('eo.dashboard');
+            return abort(403, 'Akses ditolak.');
             }
-        }
 
-        // Jika user memiliki role 'user', teruskan request
-        return $next($request);
+            return $next($request);
+        }
     }
-}

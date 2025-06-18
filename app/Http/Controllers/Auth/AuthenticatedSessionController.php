@@ -24,7 +24,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        
+
     $request->authenticate();
 
     if ($request->user()->role === 'admin') {
@@ -35,7 +35,6 @@ class AuthenticatedSessionController extends Controller
     return redirect()->route('eo.dashboard');
     }
 
-// Default untuk user biasa
     return redirect()->intended(route('dashboard'));
     }
 

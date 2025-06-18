@@ -13,31 +13,35 @@
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang!!!</h1>
         <p class="text-lg text-purple-100 mb-8">Gabung dan temukan event kampus menarik atau daftarkan event kamu!</p>
 
-
-
         <!-- Area Login/Register/Dashboard -->
         <?php if(Route::has('login')): ?>
             <nav class="flex flex-col md:flex-row gap-4 justify-center">
                 <?php if(auth()->guard()->check()): ?>
-                    <a
-                        href="<?php echo e(url('/dashboard')); ?>"
-                        class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition"
-                    >
-                        Dashboard
-                    </a>
+                    <?php if(Auth::user()->role == 'user'): ?>
+                        <a href="<?php echo e(url('/dashboard')); ?>"
+                           class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition">
+                            Dashboard
+                        </a>
+                    <?php elseif(Auth::user()->role == 'eo'): ?>
+                        <a href="<?php echo e(url('/eo/dashboard')); ?>"
+                           class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition">
+                            Dashboard
+                        </a>
+                    <?php elseif(Auth::user()->role == 'admin'): ?>
+                        <a href="<?php echo e(url('/admin/dashboard')); ?>"
+                           class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition">
+                            Dashboard
+                        </a>
+                    <?php endif; ?>
                 <?php else: ?>
-                    <a
-                        href="<?php echo e(route('login')); ?>"
-                        class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition"
-                    >
+                    <a href="<?php echo e(route('login')); ?>"
+                       class="bg-white text-purple-700 hover:bg-purple-300 font-semibold py-2 px-6 rounded-2xl shadow-md transition">
                         Log in
                     </a>
 
                     <?php if(Route::has('register')): ?>
-                        <a
-                            href="<?php echo e(route('register')); ?>"
-                            class="bg-purple-300 border border-white hover:bg-white hover:text-purple-700 font-semibold py-2 px-6 rounded-2xl transition"
-                        >
+                        <a href="<?php echo e(route('register')); ?>"
+                           class="bg-purple-300 border border-white hover:bg-white hover:text-purple-700 font-semibold py-2 px-6 rounded-2xl transition">
                             Register
                         </a>
                     <?php endif; ?>

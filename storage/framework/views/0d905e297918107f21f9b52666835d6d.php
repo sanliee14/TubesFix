@@ -81,7 +81,7 @@ unset($__sessionArgs); ?>
 
             <!-- Image Section -->
            <div class="w-1/2 flex justify-end">
-            <img src="<?php echo e(asset('images/poster.png')); ?>" alt="poster" style="width: 400px; height: 300px auto;" class="w-72 h-auto rounded-lg shadow">
+            <img src="<?php echo e(asset('images/eo.jpg')); ?>" alt="poster" style="width: 400px; height: 300px auto;" class="w-72 h-auto rounded-lg shadow">
         </div>
     </div>
 </div>
@@ -132,7 +132,7 @@ unset($__sessionArgs); ?>
 
   <!-- Button -->
   <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('user.events')); ?>"
+    <a href="<?php echo e(route('user.create_event')); ?>"
        class="bg-blue-900 hover:bg-blue-200 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
       Create Event
     </a>
@@ -206,10 +206,11 @@ unset($__sessionArgs); ?>
 </div>
 <div class="fixed bottom-20 right-5 z-50">
         <form method="GET" action="<?php echo e(route('user.create_event')); ?>">
-         <button
-             class="flex items-center justify-center bg-blue-200 text-[#2d0c57] font-bold rounded-full w-36 h-12 shadow-lg hover:bg-blue-900 transition-all duration-300">
-              <i class="fas fa-plus mr-2"></i> Create Event
-      </button>
+            <button
+                class="flex items-center justify-center bg-blue-200 text-[#2d0c57] font-bold rounded-full w-36 h-12 shadow-lg hover:bg-blue-900 transition-all duration-300">
+                <i class="fas fa-plus mr-2"></i> Create Event
+            </button>
+        </form>
         </div>
         </div>
     </body>

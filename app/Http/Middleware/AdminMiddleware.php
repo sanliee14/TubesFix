@@ -16,8 +16,8 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role != 'admin') {
-            return redirect()->route('dashboard');
+        if(Auth::check() && Auth::user()->role != 'admin') {
+            return abort(403, 'Akses ditolak.');
         }
 
         return $next($request);

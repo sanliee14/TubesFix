@@ -67,31 +67,30 @@ unset($__sessionArgs); ?>
 
                                     </p>
 
-                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
-                                        <p class="text-purple-100 text-sm">
-                                            <i class="fa-solid fa-map-location-dot"></i>
-                                           <?php echo e($item->lokasi); ?>
+                                     <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                            <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <?php echo e($item->lokasi); ?>
 
-                                        </p>
-                                    </div>
+                            </p>
+                            </div>
 
-                                    
-                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
-                                        <p class="text-purple-100 text-sm">
-                                            <i class="fas fa-calendar-alt mr-2"></i>
-                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y')); ?> -
-                                            <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y')); ?>
+                            
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-sm font-medium">
+                                    <i class="far fa-calendar-alt mr-2"></i>
+                                    <?php echo e(\Carbon\Carbon::parse($item->tanggal_mulai)->translatedFormat('d M Y')); ?> -
+                                    <?php echo e(\Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y')); ?>
 
-                                        </p>
-                                    </div>
+                                </p>
+                            </div>
 
-                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
-                                        <p class="text-purple-100 text-sm">
-                                            <i class="fas fa-calendar-alt mr-2"></i>
-                                           <?php echo e($item->status); ?>
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                    Status : <?php echo e($item->status); ?>
 
-                                        </p>
-                                    </div>
+                                </p>
+                                </div>
                                 </div>
 
                                 

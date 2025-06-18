@@ -88,7 +88,7 @@
 
       <!-- Kiri: Gambar -->
       <div class="flex justify-center md:justify-start">
-        <img src="<?php echo e(asset('images/poster.png')); ?>" alt="poster" class="max-w-md w-full rounded-xl shadow-md animate-fade-in-up">
+        <img src="<?php echo e(asset('images/us2.jpg')); ?>" alt="poster" class="max-w-md w-full rounded-xl shadow-md animate-fade-in-up">
       </div>
 
       <!-- Kanan: Teks yang lebih ke kanan -->

@@ -67,21 +67,18 @@
                     </div>
 
                     <?php if($item->status == 'menunggu'): ?>
-                    <!-- Tombol -->
                     <div class="flex justify-center gap-4 pt-4">
                         <form method="POST" action="<?php echo e(route('terima',$item->id_apply)); ?>">
                             <?php echo csrf_field(); ?>
-                                <button
-                                    class="text-[#FAEBD7] bg-blue-900 hover:bg-blue-200 hover:text-blue-900 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                                    Terima
-                                </button>
+                            <button class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                Terima
+                            </button>
                         </form>
                         <form method="POST" action="<?php echo e(route('tolak',$item->id_apply)); ?>">
                             <?php echo csrf_field(); ?>
-                                <button
-                                    class="text-[#FAEBD7] bg-red-700 hover:bg-red-200 hover:text-red-700 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                                    Tolak
-                                </button>
+                            <button type="submit" class="w-full px-3 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                Tolak
+                            </button>
                         </form>
                     </div>
                     <?php else: ?>

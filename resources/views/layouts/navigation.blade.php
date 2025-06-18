@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if(request()->is('admin*'))
-                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     @else
@@ -33,7 +33,7 @@
             </div>
 
             {{-- Search Bar --}}
-            <div class="flex-1 mt-2 max-w-md mx-4"> 
+            <div class="flex-1 mt-2 max-w-md mx-4">
                 <form action="{{ route('search.user') }}" method="GET" class="relative">
                     <div class="flex items-center">
                         <input
