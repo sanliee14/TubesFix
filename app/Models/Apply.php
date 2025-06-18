@@ -28,5 +28,4 @@ public function events()
     return $this->belongsTo(Event::class, 'event_id', 'id');
 }
 
-
 }

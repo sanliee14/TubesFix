@@ -67,7 +67,6 @@ Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.up
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 route::middleware('admin')->group(function () {
 route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 Route::post('/detaileo/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete.event');

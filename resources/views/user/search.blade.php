@@ -49,10 +49,12 @@
                                         {{ $item->deskripsi }}
                                     </p>
 
-                                    <p class="text-purple-200 text-center text-sm line-clamp-2">
-                                        <i class="fa-solid fa-map-location-dot"></i>
-                                        {{ $item->lokasi }}
-                                    </p>
+                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
+                                        <p class="text-purple-100 text-sm">
+                                            <i class="fa-solid fa-map-location-dot"></i>
+                                           {{ $item->lokasi }}
+                                        </p>
+                                    </div>
 
                                     {{-- TANGGAL --}}
                                     <div class="bg-purple-900/40 px-4 py-2 rounded-full">
@@ -62,13 +64,23 @@
                                             {{ \Carbon\Carbon::parse($item->tanggal_selesai)->translatedFormat('d M Y') }}
                                         </p>
                                     </div>
+
+                                    <div class="bg-purple-900/40 px-4 py-2 rounded-full">
+                                        <p class="text-purple-100 text-sm">
+                                            <i class="fas fa-calendar-alt mr-2"></i>
+                                           {{ $item->status }}
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {{-- TOMBOL DAFTAR --}}
+                                @if($item->status == 'belum selesai')
                                 <a href="/daftar-panitia/{{ strtolower($item->nama_event) }}"
-                                   class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
-                                    Daftar Sekarang
-                                </a>
+                                    class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
+                                     Daftar Sekarang
+                                 </a>
+                                @endif
+
                             </div>
                         @endforeach
                     </div>

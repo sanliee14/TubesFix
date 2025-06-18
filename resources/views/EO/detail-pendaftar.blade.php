@@ -63,7 +63,6 @@
                     </div>
 
                     @if($item->status == 'menunggu')
-                    <!-- Tombol -->
                     <div class="flex justify-center gap-4 pt-4">
                         <form method="POST" action="{{ route('terima',$item->id_apply) }}">
                             @csrf
@@ -81,7 +80,7 @@
                         </form>
                     </div>
                     @else
-
+                    
                     @endif
                 </div>
             </div>
