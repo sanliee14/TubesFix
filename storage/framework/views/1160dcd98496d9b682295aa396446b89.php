@@ -43,7 +43,7 @@ unset($__sessionArgs); ?>
                 
                  <div class="grid text-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                      <?php $__currentLoopData = $events; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="bg-purple-300/60 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
+                <div class="bg-purple-500/30 backdrop-blur-lg  p-8 rounded-3xl flex flex-col items-center gap-6 hover:shadow-xl transition-all duration-300">
 
                 
                        <div class="bg-purple-300/50 rounded-2xl w-48 h-48 flex items-center justify-center p-1 border-2 border-purple-400/30">
@@ -54,7 +54,7 @@ unset($__sessionArgs); ?>
                         
                         <div class="flex-1 flex flex-col gap-3 w-full">
                             
-                            <h2 class="font-bold text-2xl text-purple-900 truncate">
+                            <h2 class="font-bold text-2xl text-[#FAEBD7] truncate">
                                 <?php echo e($item->nama_event); ?>
 
                             </h2>
@@ -82,13 +82,21 @@ unset($__sessionArgs); ?>
 
                                 </p>
                             </div>
-                        </div>
 
-                                
+                            <div class="bg-purple-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-purple-800 text-semibold text-lg line-clamp-2">
+                                    Status : <?php echo e($item->status); ?>
+
+                                </p>
+                                </div>
+                        </div>
+                                <?php if($item->status == 'belum selesai'): ?>
+                                     
                                 <a href="/daftar-panitia/<?php echo e(strtolower($item->nama_event)); ?>"
-                                   class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
-                                    Daftar Sekarang
-                                </a>
+                                    class="mt-2 w-full max-w-xs bg-[#5e17eb] hover:bg-[#4b0fcb] text-white font-semibold py-3 px-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105">
+                                     Daftar Sekarang
+                                 </a>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>

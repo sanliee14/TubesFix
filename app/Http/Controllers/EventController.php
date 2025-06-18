@@ -130,7 +130,6 @@ class EventController extends Controller
     public function edit(Request $request){
         $event = Event::findOrFail($request->id);
 
-
         return view('EO.edit',compact('event'));
     }
 
@@ -170,6 +169,7 @@ class EventController extends Controller
 
 public function search(Request $request)
 {
+    
     $search = $request->query('search');
     $event = Event::where('nama_event', 'like', '%' . $search . '%')->get();
 

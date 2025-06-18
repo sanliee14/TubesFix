@@ -36,7 +36,6 @@
                         </tr>
                     </thead>
                     @foreach ($user as $item)
-
                         <tbody class="divide-y divide-pink-200">
                             <tr class="hover:bg-pink-50/70">
                                 <td class="px-6 py-4">
@@ -51,6 +50,7 @@
                                 <td class="px-6 py-4">
                                     {{ $item->updated_at }}
                                 </td>
+
                                 </td>
                             </tr>
                             <!-- Additional rows would go here -->

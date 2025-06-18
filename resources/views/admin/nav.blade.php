@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            {{-- Search Bar Positioned Lower --}}
+            <!-- {{-- Search Bar Positioned Lower --}}
             <div class="flex-1 max-w-xl mx-4 mt-1"> 
                 <form action="{{ route('search.admin') }}" method="GET" class="relative">
                     <div class="flex mt-2 items-center">
@@ -29,7 +29,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> -->
 
             <!-- Settings Dropdown -->
             <div class="flex items-center sm:ms-6">

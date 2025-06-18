@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            
+            <!-- 
             <div class="flex-1 max-w-xl mx-4 mt-1"> 
                 <form action="<?php echo e(route('search.admin')); ?>" method="GET" class="relative">
                     <div class="flex mt-2 items-center">
@@ -48,7 +48,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> -->
 
             <!-- Settings Dropdown -->
             <div class="flex items-center sm:ms-6">
@@ -232,4 +232,5 @@
             <?php endif; ?>
         </div>
     </div>
-</nav><?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/nav.blade.php ENDPATH**/ ?>
+</nav>
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/admin/nav.blade.php ENDPATH**/ ?>
