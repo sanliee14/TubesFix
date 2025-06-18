@@ -45,7 +45,6 @@ Route::middleware('eo')->group(function () {
     Route::get('/create-event', [UserPageController::class, 'createEventPage'])->name('user.create_event');
     Route::post('/create-event', [EventController::class, 'store'])->name('user.store_event');
     Route::get('/event/eo', [EventController::class, 'eventterdaftar'])->name('eo.eventeo');
-    Route::get('/totalevent', [EventController::class, 'totalevent'])->name('admin.totalevent');
     Route::post('/detail-pendaftar/{id}', [EventController::class, 'detailpendaftar'])->name('eo.detail-pendaftar');
     Route::get('/pendaftar', [EventController::class, 'pendaftar'])->name('eo.pendaftar');
     Route::get('/editevent', [EventController::class, 'editevent'])->name('eo.edit');
@@ -72,6 +71,7 @@ Route::post('/detaileo/{id}', [AdminController::class, 'eventnyaeo'])->name('adm
 Route::get('/detailvol', [AdminController::class, 'detailvol'])->name('admin.detailvol');
 Route::get('/detaileo', [AdminController::class, 'detaileo'])->name('admin.detaileo');
 Route::get('/search/admin', [AdminController::class, 'search'])->name('search.admin');
+Route::get('/totalevent', [EventController::class, 'totalevent'])->name('admin.totalevent');
 });
 
 
