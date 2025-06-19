@@ -17,10 +17,10 @@ class EventOrganizerMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(Auth::check() && Auth::user()->role != 'eo') {
-            return abort(403, 'Akses ditolak.');
-        }
+        if(Auth::check() && Auth::user()->role == 'eo') {
+            return $next($request);
 
-        return $next($request);
+        }
+        return abort(403, 'Akses ditolak.');
     }
 }
