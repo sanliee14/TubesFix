@@ -50,7 +50,6 @@ unset($__sessionArgs); ?>
                         </tr>
                     </thead>
                     <?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                         <tbody class="divide-y divide-pink-200">
                             <tr class="hover:bg-pink-50/70">
                                 <td class="px-6 py-4">
@@ -69,6 +68,7 @@ unset($__sessionArgs); ?>
                                     <?php echo e($item->updated_at); ?>
 
                                 </td>
+
                                 </td>
                             </tr>
                             <!-- Additional rows would go here -->

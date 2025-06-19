@@ -10,14 +10,14 @@
         </div>
 
         @foreach ($detail as $item)
-        <div class="bg-blue-300/60 backdrop-blur-md text-[#FAEBD7] rounded-3xl p-8 mb-10">
+        <div class="bg-blue-300/30 backdrop-blur-md text-[#FAEBD7] rounded-3xl p-8 mb-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                 <!-- Profil dan Gambar -->
                 <div class="flex flex-col items-center">
                     <div class="w-60 h-72 bg-white rounded-xl overflow-hidden mb-4 flex justify-center items-center">
                         <img src="{{ asset('storage/'. $item->user->foto) }}" alt="Foto Profil" class="object-cover w-full h-full">
                     </div>
-                    <h2 class="text-blue-800 text-xl font-bold text-center">Profil</h2>
+                    <!-- <h2 class="text-blue-800 text-xl font-bold text-center">Profil</h2> -->
                 </div>
 
                 <!-- Informasi Pendaftar -->

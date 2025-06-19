@@ -50,7 +50,7 @@ unset($__sessionArgs); ?>
                                 <label for="nama" class="font-semibold text-purple-300 text-lg min-w-[120px]">Nama</label>
                                 <input type="text" id="nama" name="nama" value="<?php echo e(Auth::user()->name); ?>" readonly
                                        class="bg-[#5e17eb] border-none text-[#FAEBD7] outline-none rounded-full px-6 py-2 w-full md:w-100 shadow-inner">
-                                <input type="hidden" name="event_id"><?php echo e($events->id); ?></input>
+                               <input type="hidden" name="event_id" value="<?php echo e($events->id); ?>"></input>
                             </div>
 
                             <!-- Posisi -->

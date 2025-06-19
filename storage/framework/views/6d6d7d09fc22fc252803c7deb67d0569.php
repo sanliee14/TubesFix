@@ -6,7 +6,7 @@
             <div class="flex items-center space-x-4">
                 <!-- Logo with Text -->
                 <div class="shrink-0 flex items-center">
-                    <a href="<?php echo e(route('dashboard')); ?>" class="flex items-center">
+                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="flex items-center">
                         <?php if (isset($component)) { $__componentOriginal8892e718f3d0d7a916180885c6f012e7 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8892e718f3d0d7a916180885c6f012e7 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.application-logo','data' => ['class' => 'block h-9 w-auto fill-current text-gray-800']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -33,7 +33,7 @@
             </div>
 
             <!-- 
-            <div class="flex-1 max-w-xl mx-4 mt-1"> 
+            <div class="flex-1 max-w-xl mx-4 mt-1">
                 <form action="<?php echo e(route('search.admin')); ?>" method="GET" class="relative">
                     <div class="flex mt-2 items-center">
                         <input

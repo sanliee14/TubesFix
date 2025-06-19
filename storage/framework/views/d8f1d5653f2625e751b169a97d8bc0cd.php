@@ -132,7 +132,7 @@ unset($__sessionArgs); ?>
 
   <!-- Button -->
   <div class="mt-10 flex justify-center">
-    <a href="<?php echo e(route('user.events')); ?>"
+    <a href="<?php echo e(route('user.create_event')); ?>"
        class="bg-blue-900 hover:bg-blue-200 text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-700 transition">
       Create Event
     </a>

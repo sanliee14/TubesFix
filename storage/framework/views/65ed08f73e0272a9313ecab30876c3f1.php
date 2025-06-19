@@ -1,9 +1,27 @@
 <?php echo $__env->make('EO.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="min-h-screen bg-cover bg-center" style="background-image: url('<?php echo e(asset('images/2.png')); ?>');">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-4">
         <div class="overflow-hidden rounded-2xl">
             <div class="p-8 flex flex-col gap-12 items-center text-center">
+                
+                <?php $__sessionArgs = ['success'];
+if (session()->has($__sessionArgs[0])) :
+if (isset($value)) { $__sessionPrevious[] = $value; }
+$value = session()->get($__sessionArgs[0]); ?>
+        <script>
+            Swal.fire({
+                title: "Success",
+                text: "<?php echo e(session('success')); ?>",
+                icon: "success"
+              });
+            </script>
+        <?php unset($value);
+if (isset($__sessionPrevious) && !empty($__sessionPrevious)) { $value = array_pop($__sessionPrevious); }
+if (isset($__sessionPrevious) && empty($__sessionPrevious)) { unset($__sessionPrevious); }
+endif;
+unset($__sessionArgs); ?>
 
                 
                 <div class="shadow-md">
@@ -52,9 +70,18 @@
 
                                 </p>
                             </div>
+
+                            <div class="bg-blue-100/50 px-3 py-2 rounded-lg">
+                                <p class="text-blue-800 text-semibold text-lg line-clamp-2">
+                                    Status :
+                                    <?php echo e($item->status); ?>
+
+                                </p>
+                            </div>
                         </div>
 
                         
+                        <?php if($item->status == 'belum selesai'): ?>
                         <div class="w-full">
                             <div class="flex justify-center gap-4 w-full pt-2">
                                 <form method="GET" action="<?php echo e(route('eo.edit',$item->id)); ?>" class="flex-1">
@@ -71,18 +98,19 @@
                                     </button>
                                 </form>
                             </div>
-                            
-                            <form method="POST" action="#" class="w-full mt-2">
+
+                            <form method="POST" action="<?php echo e(route('selesai',$item->id)); ?>" class="w-full mt-2">
                                 <?php echo csrf_field(); ?>
                                 <button class="w-full px-3 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fas fa-check text-sm"></i> Selesai
                                 </button>
                             </form>
                         </div>
+                        <?php endif; ?>
                     </div>
-                    
+
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
+
                 </div>
 
                 
@@ -95,4 +123,5 @@
             </div>
         </div>
     </div>
-</div><?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/EO/eventeo.blade.php ENDPATH**/ ?>
+</div>
+<?php /**PATH C:\laragon\tubes\EventCoba\EventConnect\resources\views/EO/eventeo.blade.php ENDPATH**/ ?>

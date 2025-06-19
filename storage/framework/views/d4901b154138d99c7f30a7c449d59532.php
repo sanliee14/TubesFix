@@ -10,14 +10,14 @@
         </div>
 
         <?php $__currentLoopData = $detail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="bg-blue-300/60 backdrop-blur-md text-[#FAEBD7] rounded-3xl p-8 mb-10">
+        <div class="bg-blue-300/30 backdrop-blur-md text-[#FAEBD7] rounded-3xl p-8 mb-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                 <!-- Profil dan Gambar -->
                 <div class="flex flex-col items-center">
                     <div class="w-60 h-72 bg-white rounded-xl overflow-hidden mb-4 flex justify-center items-center">
-                        <img src="" alt="Foto Profil" class="object-cover w-full h-full">
+                        <img src="<?php echo e(asset('storage/'. $item->user->foto)); ?>" alt="Foto Profil" class="object-cover w-full h-full">
                     </div>
-                    <h2 class="text-blue-800 text-xl font-bold text-center">Profil</h2>
+                    <!-- <h2 class="text-blue-800 text-xl font-bold text-center">Profil</h2> -->
                 </div>
 
                 <!-- Informasi Pendaftar -->
@@ -67,21 +67,18 @@
                     </div>
 
                     <?php if($item->status == 'menunggu'): ?>
-                    <!-- Tombol -->
                     <div class="flex justify-center gap-4 pt-4">
                         <form method="POST" action="<?php echo e(route('terima',$item->id_apply)); ?>">
                             <?php echo csrf_field(); ?>
-                                <button
-                                    class="text-[#FAEBD7] bg-blue-900 hover:bg-blue-200 hover:text-blue-900 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                                    Terima
-                                </button>
+                            <button class="w-full px-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                Terima
+                            </button>
                         </form>
                         <form method="POST" action="<?php echo e(route('tolak',$item->id_apply)); ?>">
                             <?php echo csrf_field(); ?>
-                                <button
-                                    class="text-[#FAEBD7] bg-red-700 hover:bg-red-200 hover:text-red-700 px-5 py-3 rounded-2xl font-semibold text-sm transition">
-                                    Tolak
-                                </button>
+                            <button type="submit" class="w-full px-3 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+                                Tolak
+                            </button>
                         </form>
                     </div>
                     <?php else: ?>
