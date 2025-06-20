@@ -34,11 +34,7 @@
                                 <label for="nama" class="font-semibold text-purple-300 text-lg min-w-[120px]">Nama</label>
                                 <input type="text" id="nama" name="nama" value="{{Auth::user()->name}}" readonly
                                        class="bg-[#5e17eb] border-none text-[#FAEBD7] outline-none rounded-full px-6 py-2 w-full md:w-100 shadow-inner">
-<<<<<<< HEAD
                                <input type="hidden" name="event_id" value="{{ $events->id }}"></input>
-=======
-                                <input type="hidden" name="event_id" value="{{ $events->id }}"></input>
->>>>>>> f887401952df7930015dab7b6a071d1b5bfb22dd
                             </div>
 
                             <!-- Posisi -->
